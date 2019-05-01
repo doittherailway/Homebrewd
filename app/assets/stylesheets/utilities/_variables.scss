@@ -5,8 +5,13 @@ $beer-grey: #666;
 $dark-grey: #4c4c4c;
 $error-red: #bc3434;
 $roboto-font: 'Roboto', sans-serif;
+$raleway-font: 'Raleway-b', sans-serif;
 
 @font-face {
-    font-family: 'raleway-b'; /*a name to be used later*/
-    src: url('../../fonts/Raleway-Bold.ttf'); /*URL to font*/
+    font-family: 'Raleway-b'; /*a name to be used later*/
+    src: asset-path('Raleway-Bold.ttf'); /*URL to font*/
+    src: local('Raleway-Bold'), 
+         local('Raleway-Bold'), 
+         url('Raleway-Bold.ttf') format('truetype'),
+         url('Raleway-Bold.svg#font') format('svg');
 }

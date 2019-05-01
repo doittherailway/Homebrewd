@@ -1,7 +1,7 @@
 @import "utilities/variables";
 
 .outer-form {
-    background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ), url("beers_bg.jpg");
+    background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ), image-url("beers_bg_1.jpg");
     background-size:100% 100%;
     width: 100%;
     height: 100%;
@@ -33,11 +33,12 @@
 }
 
 .form-logo {
-    font-size: 36px;
+    font-size: 40px;
     text-transform: uppercase;
     padding: 5px;
     margin-top: 10px;
     color: $dark-grey;
+    font-family: $raleway-font;
 }
 
 .session-form label {
