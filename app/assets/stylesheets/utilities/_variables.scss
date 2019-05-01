@@ -9,9 +9,8 @@ $raleway-font: 'Raleway-b', sans-serif;
 
 @font-face {
     font-family: 'Raleway-b'; /*a name to be used later*/
-    src: asset-path('Raleway-Bold.ttf'); /*URL to font*/
-    src: local('Raleway-Bold'), 
-         local('Raleway-Bold'), 
-         url('Raleway-Bold.ttf') format('truetype'),
-         url('Raleway-Bold.svg#font') format('svg');
+    src: asset-url('Raleway-Bold.ttf'); /*URL to font*/
+    src: asset-url('Raleway-Bold'), 
+         asset-url('Raleway-Bold.ttf') format('truetype'),
+         asset-url('Raleway-Bold.svg#font') format('svg');
 }
