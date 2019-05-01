@@ -106,3 +106,18 @@
 .signup-login-link:hover {
     color: $dark-yellow; 
 }
+
+.demo-login-btn {
+    margin: 0px 10px 10px 10px;
+    padding: 10px;
+    background-color: $beer-yellow;
+    border-radius: 3px;
+    text-transform: capitalize;
+    color: white;
+    width: 100px;
+    text-align: center;
+}
+
+.demo-login-btn:hover {
+    background-color: $dark-yellow;
+}
