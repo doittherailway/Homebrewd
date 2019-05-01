@@ -1,0 +1,35 @@
+/* font-family: 'Roboto', sans-serif; */
+.navbar {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FFCC00;
+    color: white;
+    text-align: center;
+    height: 50px;
+}
+
+.nav-logo {
+    font: blue;
+    font-size: 28px;
+    margin: 10px;
+}
+
+.navbar h2 {
+
+}
+
+.navbar h4 {
+    margin-left: auto;
+}
+
+.nav-button {
+   font-size: 14px;
+   padding: 2px;
+   margin: 10px;
+}
+
+.nav-button:hover {
+    color: darkslategray;
+}

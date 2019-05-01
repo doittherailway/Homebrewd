@@ -9,8 +9,9 @@ class Navbar extends React.Component {
     render() {
         return(
             <div className="navbar">
-                <h4>Welcome {this.props.currentUser.username}</h4>
-                <button onClick={this.props.logout}>Logout</button>
+                <h2 className="nav-logo">HOMEBREWD</h2>
+                <h4>Welcome, {this.props.currentUser.username}! </h4>
+                <button className="nav-button" onClick={this.props.logout}>Logout</button>
             </div>
         )
     }

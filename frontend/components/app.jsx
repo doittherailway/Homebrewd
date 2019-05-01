@@ -8,7 +8,6 @@ import { AuthRoute, ProtectedRoute, AuthSlashRoute } from '../util/route_util';
 
 const App = () => (
     <div>
-        <h1>Homebrewd</h1>
         <AuthSlashRoute path="/" component={SplashContainer} /> 
         <AuthRoute path="/login" component={LoginFormContainer} />
         <AuthRoute path="/signup" component={SignupFormContainer} />
