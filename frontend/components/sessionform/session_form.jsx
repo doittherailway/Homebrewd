@@ -19,7 +19,7 @@ class SessionForm extends React.Component {
         this.renderErrors = this.renderErrors.bind(this);
     }
 
-    componentWillUnmount(){
+    componentDidMount(){
         this.props.receiveErrors([]);
     }
 
@@ -31,7 +31,8 @@ class SessionForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.processForm(this.state);
+        this.props.processForm(this.state)
+        .then(() => this.props.history.push('/'));
     }
 
     linkto() {
