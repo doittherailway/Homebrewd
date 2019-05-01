@@ -28,7 +28,16 @@
     font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: 100;
+    color: $beer-grey;
 
+}
+
+.form-logo {
+    font-size: 36px;
+    text-transform: uppercase;
+    padding: 5px;
+    margin-top: 10px;
+    color: $dark-grey;
 }
 
 .session-form label {
@@ -40,12 +49,14 @@
 }
 
 .session-submit-btn {
-    margin: 10px;
+    margin: 20px 10px 10px 10px;
     padding: 10px;
     background-color: $beer-yellow;
     border-radius: 3px;
     text-transform: capitalize;
-
+    color: white;
+    width: 100px;
+    text-align: center;
 }
 
 .session-submit-btn:hover {
@@ -68,10 +79,29 @@
 }
 
 
-
-
 .error-container {
     padding: 5px;
-    color: darkred;
+    color: $error-red;
     text-transform: capitalize;
+}
+
+.signup-from-login-outer {
+    text-align: center
+}
+
+.signup-from-login {
+    background: white;
+    font-family: 'Roboto', sans-serif;
+    padding: 20px 10px 20px 10px;
+    width: 330px;
+    color: $beer-grey;
+    justify-content: center;
+}
+
+.signup-login-link {
+    color: $beer-orange; 
+}
+
+.signup-login-link:hover {
+    color: $dark-yellow; 
 }

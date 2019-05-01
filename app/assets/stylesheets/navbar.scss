@@ -8,13 +8,13 @@
     background-color: $beer-yellow;
     color: white;
     text-align: center;
-    height: 50px;
+    height: 60px;
 }
 
 .nav-logo {
-    font: blue;
-    font-size: 28px;
+    font-size: 32px;
     margin: 10px;
+    margin-left: 100px;
 }
 
 .navbar h2 {
@@ -29,8 +29,9 @@
    font-size: 14px;
    padding: 2px;
    margin: 10px;
+   margin-right: 100px;
 }
 
 .nav-button:hover {
-    color: darkslategray;
+    color: $beer-grey;
 }

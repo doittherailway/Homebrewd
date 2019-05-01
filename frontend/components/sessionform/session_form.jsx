@@ -34,6 +34,14 @@ class SessionForm extends React.Component {
         this.props.processForm(this.state);
     }
 
+    formLogo() {
+        return(
+            <div className="form-logo">
+                Homebrewd
+            </div>
+        )
+    }
+
     formHeader() { 
         if (this.props.formType === 'signup') {
             return 'Create an account'; 
@@ -59,6 +67,7 @@ class SessionForm extends React.Component {
             <div className="outer-form">
                 <div className="session-form-container">
                     <form className="session-form" onSubmit={this.handleSubmit}>
+                        {this.formLogo()}
                         <h3>{this.formHeader()}</h3>
                         <label>Username
                             <input className="session-form-input" type="text" value={this.state.username} onChange={(e) => (this.handleChange('username', e))}></input>
@@ -66,10 +75,15 @@ class SessionForm extends React.Component {
                         <label>Password
                             <input className="session-form-input" type="password" value={this.state.password} onChange={(e) => (this.handleChange('password', e))}></input>
                         </label>
-                        <input className="session-submit-btn" type="submit" value={this.props.formType}></input>
+                        <input className="session-submit-btn" type="submit" value="Sign In"></input>
                         {this.renderErrors()}
                     </form>
                     
+                </div>
+                <div className="signup-from-login-outer">
+                    <div className="signup-from-login">
+                        New around here? <Link className="signup-login-link" to="/signup">Sign Up!</Link>
+                    </div>
                 </div>
             </div>
         )    
@@ -80,6 +94,7 @@ class SessionForm extends React.Component {
             <div className="outer-form">
                 <div className="session-form-container">
                     <form className="session-form" onSubmit={this.handleSubmit}>
+                        {this.formLogo()}
                         <h3>{this.formHeader()}</h3>
                         <label>Username
                             <input className="session-form-input" type="text" value={this.state.username} onChange={(e) => (this.handleChange('username', e))}></input>
@@ -101,6 +116,11 @@ class SessionForm extends React.Component {
                     </form>
                     
 
+                </div>
+                <div className="signup-from-login-outer">
+                    <div className="signup-from-login">
+                        Already have an account? <Link className="signup-login-link" to="/login">Login here!</Link>
+                    </div>
                 </div>
             </div>
         )
