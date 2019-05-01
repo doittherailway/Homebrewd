@@ -31,8 +31,7 @@ class SessionForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.processForm(this.state)
-        .then(() => this.props.history.push('/')); // maybe unneeded due to redirect upon login
+        this.props.processForm(this.state);
     }
 
     linkto() {
