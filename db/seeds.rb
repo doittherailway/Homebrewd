@@ -8,3 +8,8 @@
 
 demouser = {username: 'BeerDrinker', password: 'password', email: 'abc@test.com', first_name: 'Peter', last_name: 'Parker'}
 User.create(demouser)
+
+Brewery.create({name: "Unknown", description: "Brewery unknown"})
+Brewery.create({name: "Basement Brewing", description: "First came the kit brewing, now we're pumping out beers faster than we can share them", location: "Mission District, San Francisco, CA"})
+
+Beer.create({name: "Nuttiest Brown Ale", brewery_id: 1, description: "Malty goodness brewed with cacao nibs and plenty of nuts", beer_type: "Brown Ale", abv: 6.7})
