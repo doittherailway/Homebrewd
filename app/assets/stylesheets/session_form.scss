@@ -1,0 +1,77 @@
+@import "utilities/variables";
+
+.outer-form {
+    background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ), url("beers_bg.jpg");
+    background-size:100% 100%;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.session-form-container {
+   background-color: white;
+   width: 350px;
+   display: flex;
+   justify-content: center;
+}
+
+.session-form {
+    display: flex;
+    justify-content: center; 
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 100;
+
+}
+
+.session-form label {
+    display: block;
+    margin: 5px;
+    border-radius: 3px;
+    padding: 2px;
+    font-weight: 900;
+}
+
+.session-submit-btn {
+    margin: 10px;
+    padding: 10px;
+    background-color: $beer-yellow;
+    border-radius: 3px;
+    text-transform: capitalize;
+
+}
+
+.session-submit-btn:hover {
+    background-color: $dark-yellow;
+}
+
+.session-form-input {
+    display: block;
+    margin: 2px;
+    border-radius: 3px;
+    padding: 2px;
+    // background: rgba(0,0,0,.1);
+    border: 1px solid lightgrey;
+    width: 250px;
+}
+
+
+.session-form input:focus {
+  background: rgba(0,0,0,.1);
+}
+
+
+
+
+.error-container {
+    padding: 5px;
+    color: darkred;
+    text-transform: capitalize;
+}

@@ -13,7 +13,7 @@ class SessionForm extends React.Component {
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.linkto = this.linkto.bind(this);
+        this.formHeader = this.formHeader.bind(this);
         this.loginForm = this.loginForm.bind(this);
         this.signupForm = this.signupForm.bind(this);
         this.renderErrors = this.renderErrors.bind(this);
@@ -34,20 +34,20 @@ class SessionForm extends React.Component {
         this.props.processForm(this.state);
     }
 
-    linkto() {
+    formHeader() { 
         if (this.props.formType === 'signup') {
-            return 'login';
+            return 'Create an account'; 
         } else {
-            return 'signup';
+            return 'Returning user login';
         }
     }
 
     renderErrors() {
         return(
-            <div>
+            <div className="error-container">
                 <ul>
-                    {this.props.errors.session.map(err => (
-                        <li>{err}</li>
+                    {this.props.errors.session.map((err, i) => (
+                        <li key={`error-${i}`}>{err}</li>
                     ))}
                 </ul>
             </div>
@@ -56,48 +56,52 @@ class SessionForm extends React.Component {
 
     loginForm() {
         return(
-            <div className="session-form">
-                <h3>{this.props.formType}</h3>
-
-                <form onSubmit={this.handleSubmit}>
-                    <label>Username
-                        <input type="text" value={this.state.username} onChange={(e) => (this.handleChange('username', e))}></input>
-                    </label>
-                    <label>Password
-                        <input type="password" value={this.state.password} onChange={(e) => (this.handleChange('password', e))}></input>
-                    </label>
-                    <input type="submit" value="submit"></input>
-                </form>
-                {this.renderErrors()}
-                <Link to={`/${this.linkto()}`}>{this.linkto()}</Link>
+            <div className="outer-form">
+                <div className="session-form-container">
+                    <form className="session-form" onSubmit={this.handleSubmit}>
+                        <h3>{this.formHeader()}</h3>
+                        <label>Username
+                            <input className="session-form-input" type="text" value={this.state.username} onChange={(e) => (this.handleChange('username', e))}></input>
+                        </label>
+                        <label>Password
+                            <input className="session-form-input" type="password" value={this.state.password} onChange={(e) => (this.handleChange('password', e))}></input>
+                        </label>
+                        <input className="session-submit-btn" type="submit" value={this.props.formType}></input>
+                        {this.renderErrors()}
+                    </form>
+                    
+                </div>
             </div>
         )    
     }
 
     signupForm(){
         return(
-            <div className="session-form">
-                <h3>{this.props.formType}</h3>
-                <form onSubmit={this.handleSubmit}>
-                    <label>Username
-                        <input type="text" value={this.state.username} onChange={(e) => (this.handleChange('username', e))}></input>
-                    </label>
-                    <label>First Name
-                        <input type="text" value={this.state.first_name} onChange={(e) => (this.handleChange('first_name', e))}></input>
-                    </label>
-                    <label>Last Name
-                        <input type="text" value={this.state.last_name} onChange={(e) => (this.handleChange('last_name', e))}></input>
-                    </label>
-                    <label>Email
-                        <input type="email" value={this.state.email} onChange={(e) => (this.handleChange('email', e))}></input>
-                    </label>
-                    <label>Password (minimum 6 characters)
-                        <input type="password" value={this.state.password} onChange={(e) => (this.handleChange('password', e))}></input>
-                    </label>
-                    <input type="submit" value="submit"></input>
-                </form>
-                {this.renderErrors()}
-                <Link to={`/${this.linkto()}`}>{this.linkto()}</Link>
+            <div className="outer-form">
+                <div className="session-form-container">
+                    <form className="session-form" onSubmit={this.handleSubmit}>
+                        <h3>{this.formHeader()}</h3>
+                        <label>Username
+                            <input className="session-form-input" type="text" value={this.state.username} onChange={(e) => (this.handleChange('username', e))}></input>
+                        </label>
+                        <label>First Name
+                            <input className="session-form-input" type="text" value={this.state.first_name} onChange={(e) => (this.handleChange('first_name', e))}></input>
+                        </label>
+                        <label>Last Name
+                            <input className="session-form-input" type="text" value={this.state.last_name} onChange={(e) => (this.handleChange('last_name', e))}></input>
+                        </label>
+                        <label>Email
+                            <input className="session-form-input" type="email" value={this.state.email} onChange={(e) => (this.handleChange('email', e))}></input>
+                        </label>
+                        <label>Password
+                            <input className="session-form-input" type="password" value={this.state.password} onChange={(e) => (this.handleChange('password', e))}></input>
+                        </label>
+                        <input className="session-submit-btn" type="submit" value={this.props.formType}></input>
+                        {this.renderErrors()}
+                    </form>
+                    
+
+                </div>
             </div>
         )
     }
