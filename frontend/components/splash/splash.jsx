@@ -26,7 +26,7 @@ class Splash extends React.Component {
                     </div>
                 </div>
                 <div className="splash-phone-container">
-                    <img className="splash-phone-img" src={window.images.splash_phone} />
+                     <img className="splash-phone-img" src={window.images.splash_phone} />
                 </div>
             </div>
         )}
