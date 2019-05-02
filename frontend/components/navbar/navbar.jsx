@@ -7,13 +7,17 @@ class Navbar extends React.Component {
     }
 
     render() {
-        return(
-            <div className="navbar">
-                <Link to="/" className="nav-logo">HOMEBREWD</Link>
-                <h4>Welcome, {this.props.currentUser.username}! </h4>
-                <button className="nav-button" onClick={this.props.logout}>Logout</button>
-            </div>
-        )
+        if (this.props.currentUser === undefined) {
+            return null;
+        } else {
+            return(
+                <div className="navbar">
+                    <Link to="/" className="nav-logo">HOMEBREWD</Link>
+                    <h4>Welcome, {this.props.currentUser.username}! </h4>
+                    <button className="nav-button" onClick={this.props.logout}>Logout</button>
+                </div>
+            )
+        }
     }
 }
 

@@ -14,7 +14,7 @@ const AuthSlash = ({ component: Component, path, loggedIn, exact }) => (
             <Component {...props} />
         ) : (
                 <div>
-                    <NavbarContainer />
+                    Checkin Container 
                 </div>
             )
     )} />

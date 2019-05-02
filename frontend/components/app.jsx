@@ -9,6 +9,7 @@ import { AuthRoute, ProtectedRoute, AuthSlashRoute } from '../util/route_util';
 
 const App = () => (
     <div>
+        <NavbarContainer />
         <Switch>
             <AuthSlashRoute exact path="/" component={SplashContainer} /> 
             <ProtectedRoute exact path="/beers" component={BeerIndexContainer} />
