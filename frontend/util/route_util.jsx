@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Route, Redirect, withRouter } from 'react-router-dom';
 import NavbarContainer from '../components/navbar/navbar_container';
+import BeerIndexContainer from '../components/beerindex/beer_index_container';
 
 const mapStateToProps = state => {
     return { loggedIn: Boolean(state.session.currentUserId) };
@@ -12,7 +13,9 @@ const AuthSlash = ({ component: Component, path, loggedIn, exact }) => (
         !loggedIn ? (
             <Component {...props} />
         ) : (
-                <NavbarContainer />
+                <div>
+                    <NavbarContainer />
+                </div>
             )
     )} />
 );
