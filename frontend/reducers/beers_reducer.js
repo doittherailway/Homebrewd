@@ -14,7 +14,7 @@ const beersReducer = (state = {}, action) => {
             delete newState[action.beerId];
             return newState;
         default:
-            return oldState;
+            return state;
     }
 };
 
