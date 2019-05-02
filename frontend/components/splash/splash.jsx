@@ -8,15 +8,25 @@ class Splash extends React.Component {
         
     }
 
+    
+
     splashMain(){
         if (this.props.location === "/"){
         return(
-            <div className="logo-outer">
-                <div className="splash-logo">
-                    Homebrewd
+            <div className="splash-outer">
+                <div className="logo-outer">
+                    <div className="splash-logo">
+                        Homebrewd
+                    </div>
+                    <div className="splash-ylw">
+
+                    </div>
+                    <div className="splash-text">
+                        Review and rate homebrew beers.
+                    </div>
                 </div>
-                <div className="splash-text">
-                    Review and rate homebrew beers
+                <div className="splash-phone-container">
+                    <img className="splash-phone-img" src={window.images.splash_phone} />
                 </div>
             </div>
         )}

@@ -21,6 +21,13 @@
    justify-content: center;
 }
 
+.session-form-container-signup {
+    background-color: white;
+    width: 350px;
+    display: flex;
+    justify-content: center;
+}
+
 .session-form {
     display: flex;
     justify-content: center; 
@@ -42,13 +49,41 @@
     font-family: $raleway-font;
 }
 
-.session-form label {
-    display: block;
-    margin: 5px;
+// .session-form label {
+//     display: block;
+//     margin: 5px;
+//     border-radius: 3px;
+//     padding: 2px;
+//     font-weight: 900;
+// }
+
+// .input-sides {
+//     display: flex;
+//     width: 600px;
+//     flex-direction: row;
+//     justify-content: space-evenly;
+// }
+
+.input-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border: 1px solid #ccc;
     border-radius: 3px;
-    padding: 2px;
-    font-weight: 900;
+    width: 250px;
+    height: 30px;
+    margin: 5px;
 }
+
+// .hidden-input-box {
+//     display: flex;
+//     background-color: #fff;
+//     width: 250px;
+//     height: 30px;
+//     margin: 5px;
+//     border: 1px solid #fff;
+//     border-radius: 3px;
+// }
 
 .session-submit-btn {
     margin: 20px 10px 10px 10px;
@@ -57,22 +92,47 @@
     border-radius: 3px;
     text-transform: capitalize;
     color: white;
-    width: 100px;
+    width: 230px;
     text-align: center;
+    font-weight: 800;
 }
 
 .session-submit-btn:hover {
     background-color: $dark-yellow;
 }
 
+.input-box i {
+    padding: 10px;
+    margin-left: 2px;
+    opacity: 0.5; 
+}
+
+.input-box p {
+    border-left: 1px solid lightgray;
+    height: 22px;
+    width: 210px;
+    display: flex;
+    align-items: center;
+}
+
 .session-form-input {
     display: block;
     margin: 2px;
-    border-radius: 3px;
     padding: 2px;
+    padding-left: 4px;
+    width: 200px;
+    height: 22px;
     // background: rgba(0,0,0,.1);
-    border: 1px solid lightgrey;
-    width: 250px;
+}
+
+.session-form-input-n {
+    display: block;
+    margin: 2px;
+    padding: 2px;
+    padding-left: 4px;
+    width: 230px;
+    height: 22px;
+    // background: rgba(0,0,0,.1);
 }
 
 
@@ -80,24 +140,67 @@
   background: rgba(0,0,0,.1);
 }
 
-
-.error-container {
-    padding: 5px;
-    color: $error-red;
-    text-transform: capitalize;
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #ccc;
+  opacity: 1; /* Firefox */
 }
 
+
+.error-container {
+    color: white;
+    background-color: $error-red;
+    // text-transform: capitalize;
+    min-height: 50px;
+    width: 310px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-content: center;
+    border-radius: 3px;
+    font-size: 14px;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+.error-container-s {
+    color: white;
+    background-color: $error-pink;
+    // text-transform: capitalize;
+    min-height: 50px;
+    width: 310px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-content: center;
+    border-radius: 3px;
+    font-size: 14px;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+
 .signup-from-login-outer {
-    text-align: center
+    text-align: center;
+    width: 350px;
+    background: white;
+}
+
+.signup-from-login-outer-s {
+    text-align: center;
+    width: 350px;
+    background: white;
+    align-content: center;
 }
 
 .signup-from-login {
-    background: white;
     font-family: 'Roboto', sans-serif;
-    padding: 20px 10px 20px 10px;
-    width: 330px;
+    padding: 15px 10px 20px 10px;
+    font-size: 18px;
     color: $beer-grey;
     justify-content: center;
+    font-weight: 800;
 }
 
 .signup-login-link {
@@ -115,10 +218,39 @@
     border-radius: 3px;
     text-transform: capitalize;
     color: white;
-    width: 100px;
+    width: 230px;
     text-align: center;
+    font-weight: 800;
 }
 
 .demo-login-btn:hover {
     background-color: $dark-yellow;
+}
+
+.login-hr {
+    width: 250px;
+    height: 1px;
+    background: #fff;
+    border-bottom: 1px solid #ccc;
+    margin-top: 5px;
+    // margin-left: auto;
+    // margin-right: auto;
+}
+
+.field-text {
+    font-size: 14px;
+    font-weight: 900;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
+.password-text {
+    font-size:14px;
+    font-weight: 900;
+    margin-top: 10px;
+    margin-bottom: 2px;
+    color: black;
+}
+.space-div {
+    margin: 10px;
 }

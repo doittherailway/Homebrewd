@@ -26,13 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     //Testing, remove later
-    window.dispatch = store.dispatch;
-    window.getState = store.getState;
-    window.fetchBeers = fetchBeers;
-    window.fetchBeer = fetchBeer;
-    window.createBeer = createBeer;
-    window.updateBeer = updateBeer;
-    window.deleteBeer = deleteBeer;
+    // window.dispatch = store.dispatch;
+    // window.getState = store.getState;
+   
 
     ReactDOM.render(<Root store={store} />, root);
 });
