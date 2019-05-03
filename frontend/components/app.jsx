@@ -4,7 +4,7 @@ import SplashContainer from './splash/splash_container';
 import NavbarContainer from './navbar/navbar_container';
 import LoginFormContainer from './sessionform/login_form_container';
 import SignupFormContainer from './sessionform/signup_form_container';
-import BeerIndexContainer from './beerindex/beer_index_container';
+import BeerIndexContainer from './beers/beerindex/beer_index_container';
 import { AuthRoute, ProtectedRoute, AuthSlashRoute } from '../util/route_util';
 
 const App = () => (

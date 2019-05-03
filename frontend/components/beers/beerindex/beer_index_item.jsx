@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import BeerExtraDetail from '../beer_extra_detail';
 
 const BeerIndexItem = (props) => {
     return(
@@ -16,10 +17,7 @@ const BeerIndexItem = (props) => {
                 <p className="beer-type">{props.beer.beerType}</p>
                 <p className="beer-desc">{props.beer.description}</p>
             </div>
-            <div className="beer-extra-details">
-                <p>{props.beer.abv}% ABV</p>
-                <p>Added {props.beer.createdAt}</p>
-            </div>
+            <BeerExtraDetail beer={props.beer} />
         </li>
     )
 };
