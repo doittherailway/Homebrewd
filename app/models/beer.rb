@@ -1,16 +1,6 @@
 class Beer < ApplicationRecord
-    validates :name, uniqueness: true
-    validates :name, :brewery_id, :description, :beer_type, presence: true
 
-    belongs_to :brewery
-
-    
-
-    def assign_null_brewery!
-        self.brewery_id = Brewery.find_by(name: 'Unknown')
-    end
-
-    $BEER_TYPES = [
+    BEER_TYPES = [
         "Belgian",
         "Blonde Ale",
         "Bock",
@@ -54,4 +44,18 @@ class Beer < ApplicationRecord
         "Wheat Beer - Other",
         "Witbier"
     ]
+
+    validates :name, uniqueness: true
+    validates :name, :brewery_id, :description, :beer_type, presence: true
+    validates :beer_type, inclusion: BEER_TYPES
+
+    belongs_to :brewery
+
+    
+
+    def assign_null_brewery!
+        self.brewery_id = Brewery.find_by(name: 'Unknown')
+    end
+
+    
 end

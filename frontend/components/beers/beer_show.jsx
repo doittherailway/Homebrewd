@@ -12,7 +12,7 @@ class BeerShow extends React.Component {
     }
 
     render() {
-         debugger           // top level div can have same class as index item
+        // top level div can have same class as index item
         if (this.props.beer !== undefined) {
             return(
                 <div> 
