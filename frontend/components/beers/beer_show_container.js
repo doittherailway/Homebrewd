@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import BeerShow from './beer_show';
-import { fetchBeer, updateBeer, deleteBeer } from '../../../actions/beer_actions';
+import { fetchBeer, updateBeer, deleteBeer } from '../../actions/beer_actions';
 
 const mapStateToProps = (state, ownProps) => {
     let beerId = ownProps.match.params.beerId;

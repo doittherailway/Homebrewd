@@ -12,16 +12,23 @@ class BeerShow extends React.Component {
     }
 
     render() {
-                    // top level div can have same class as index item
-        return(
-            <div> 
-                <div>
-                    {this.props.beer.name}
-                    {this.props.beer.brewery}  
+         debugger           // top level div can have same class as index item
+        if (this.props.beer !== undefined) {
+            return(
+                <div> 
+                    <div>
+                        {this.props.beer.name}
+                        {this.props.beer.brewery}  
+                    </div>
+                    <BeerExtraDetail beer={this.props.beer} />
                 </div>
-                <BeerExtraDetail beer={this.props.beer} />
-            </div>
-        );
+            )
+        } else {
+            return (
+                null   //add loading icon here
+            )
+        }
+
     }
 
 }

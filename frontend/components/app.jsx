@@ -5,6 +5,7 @@ import NavbarContainer from './navbar/navbar_container';
 import LoginFormContainer from './sessionform/login_form_container';
 import SignupFormContainer from './sessionform/signup_form_container';
 import BeerIndexContainer from './beers/beerindex/beer_index_container';
+import BeerShowContainer from './beers/beer_show_container';
 import { AuthRoute, ProtectedRoute, AuthSlashRoute } from '../util/route_util';
 
 const App = () => (
@@ -13,6 +14,7 @@ const App = () => (
         <Switch>
             <AuthSlashRoute exact path="/" component={SplashContainer} /> 
             <ProtectedRoute exact path="/beers" component={BeerIndexContainer} />
+            <ProtectedRoute path="/beers/:beerId" component={BeerShowContainer} />
             <AuthRoute path="/login" component={LoginFormContainer} />
             <AuthRoute path="/signup" component={SignupFormContainer} />
             <Redirect to="/" />
