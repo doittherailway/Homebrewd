@@ -3,15 +3,26 @@
 
 .outer-background {
     background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ), image-url("beers_bg_1.jpg");
+<<<<<<< HEAD
     background-repeat: no-repeat;
     background-size: 100% 100%; 
     width: 100%;
+=======
+    background-size:100% 100%;
+    min-width: 100%;
+    min-height: 100%;
+>>>>>>> beers
     height: 100%;
+    width: 100%;
     z-index: -1;
+<<<<<<< HEAD
     position: absolute;
 }
 
 .outer-form {
+=======
+    // position: absolute;
+>>>>>>> beers
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -23,6 +34,7 @@
    background-color: white;
    width: 350px;
    display: flex;
+   margin-top: 200px;
    justify-content: center;
     margin-top: 5%;
 }
