@@ -1,6 +1,7 @@
 import React from 'react';
 import BeerExtraDetail from './beer_extra_detail'
 import BeerIcon from './beer_icon';
+import BeerDesc from './beer_desc';
 
 class BeerShow extends React.Component {
 
@@ -12,8 +13,10 @@ class BeerShow extends React.Component {
         this.props.fetchBeer(this.props.beerId);
     }
 
+ 
+
     render() {
-        if (this.props.beer !== undefined) {
+        if (this.props.beer !== undefined && this.props.beer.name !== undefined) {
             return(
                 <div className="beer-bg">
                     <div className="beer-show-outer">
@@ -29,9 +32,7 @@ class BeerShow extends React.Component {
                                     <BeerExtraDetail beer={this.props.beer} />
                                 </div>   
                             </div>
-                            <div className="beer-show-desc-box">
-                                <p className="beer-show-desc">{this.props.beer.description}</p>
-                            </div>
+                            <BeerDesc fullDesc={this.props.beer.description} truncDesc={this.props.beer.truncDescShort} charCount={84} />
                         </div>
                     </div>
                 </div>

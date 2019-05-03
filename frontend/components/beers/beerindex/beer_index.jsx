@@ -9,10 +9,10 @@ class BeerIndex extends React.Component {
     }
 
     render() {
-        if (Object.keys(this.props.beers).length === 0) {
+        if (Object.keys(this.props.beers).length === 0 ) {
             return(
                 null
-            );
+            )
         } else {
             return(
                 <div className="beer-bg">
@@ -24,7 +24,7 @@ class BeerIndex extends React.Component {
                             <div>
                                 <ul className="beer-index-ul">
                                     {this.props.beers.map((beer, i) => {
-                                        return(<BeerIndexItem { ...beer } key={i} />)
+                                        return(<BeerIndexItem beer={beer} key={i} />)
                                     })}
                                 </ul>
                             </div>

@@ -6,7 +6,7 @@ import BeerIcon from '../beer_icon';
 const BeerIndexItem = (props) => {
     return(
         <li className="beer-index-item">
-            <BeerIcon beerType={props.beer.beerType} />
+            <BeerIcon beerType={props.beerType} />
             <div className="beer-details">
                 <Link className="beer-title" to={`/beers/${props.beer.id}`}>
                     {props.beer.name}
