@@ -1,0 +1,126 @@
+ @import "../base/colors.scss";
+ @import "../base/fonts.scss";
+
+.beer-content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: $bg-grey;
+ }
+
+ .beer-index-ul {
+
+ }
+
+.beer-index-outer {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    width: 700px;
+    align-self: center
+}
+
+.beer-index-title {
+    box-sizing: border-box;
+    display: block;
+    font-family: $main-font;
+    color: black;
+    font-size: 22px;
+    align-self: center;
+    text-align: left;
+    width: 700px;
+    height: 60px;
+    background-color: $bg-title-grey;
+    padding: 15px 15px 10px 40px;
+    border-bottom: 1px solid $border-light-grey;
+}
+
+.beer-index-item {
+    // display: flex;
+    width: 650px;
+    // flex-direction: row;
+    font-size: 0;
+    padding-top: 10px;
+}
+
+.beer-details {
+    font-family: $main-font;
+    display: inline-block;
+    box-sizing: border-box;
+    margin: 5px;
+    width: 82%;
+    padding-left: 5px;
+}
+
+.beer-details p {
+    margin: 5px;
+    font-size: 16px;
+}
+
+.beer-brewery {
+    color: $dark-yellow;
+}
+
+.beer-desc {
+    color: $beer-dtl-grey; 
+}
+
+.beer-type {
+    color: $beer-dtl-dark-grey;
+}
+
+.beer-extra-details {
+    color: $beer-dtl-grey;
+    font-family: $main-font;
+    display: block;
+    border-top: 1px solid $border-other-grey;
+    border-bottom: 1px solid $border-other-grey;
+    width: 100%;
+    max-height: 40px;
+    font-size: 16px;
+    text-align: center;
+}
+.beer-extra-details p {
+    padding: 10px;
+    display: inline-block;
+    border-right: 1px solid $border-other-grey;
+    width: 45%;
+    font-weight: 100;
+}
+
+.beer-extra-details p:last-child {
+    border-right: 0;
+}
+
+.beer-title {
+    color: $beer-orange;
+    font-family: $main-font;
+    font-size: 20px;
+    margin: 5px;
+    // padding: 2px;
+    margin-top: 7px;
+}
+
+.beer-title:hover {
+    color: $beer-light-orange;
+}
+
+.beer-img {
+    vertical-align: top;
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 10px;
+    width: 16%;
+}
+
+.beer-img i {
+    width: 80px;
+    height: 80px;
+    font-size: 40px;
+    background-color: #ccc;
+    text-align: center;
+    vertical-align: top;
+    line-height: 80px;
+    border-radius: 3px;
+}
+
