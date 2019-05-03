@@ -1,17 +1,22 @@
  @import "../base/colors.scss";
  @import "../base/fonts.scss";
 
-.outer-form {
+.outer-background {
     background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ), image-url("beers_bg_1.jpg");
-    background-size:100% 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%; 
     width: 100%;
     height: 100%;
     z-index: -1;
     position: absolute;
+}
+
+.outer-form {
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
+    // overflow: auto;
 }
 
 .session-form-container {
@@ -19,6 +24,7 @@
    width: 350px;
    display: flex;
    justify-content: center;
+    margin-top: 5%;
 }
 
 .session-form-container-signup {
@@ -26,6 +32,7 @@
     width: 350px;
     display: flex;
     justify-content: center;
+    margin-top: 5%;
 }
 
 .session-form {

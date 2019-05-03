@@ -86,6 +86,7 @@ class SessionForm extends React.Component {
 
     loginForm() {
         return(
+            <div className="outer-background">
             <div className="outer-form">
                 <div className="session-form-container">
                     <form className="session-form" onSubmit={this.handleSubmit}>
@@ -113,11 +114,13 @@ class SessionForm extends React.Component {
                     </div>
                 </div>
             </div>
+            </div>
         )    
     }
 
     signupForm(){
         return(
+            <div className="outer-background">
             <div className="outer-form">
                 <div className="session-form-container-signup">
                     <form className="session-form" onSubmit={this.handleSubmit}>
@@ -157,6 +160,7 @@ class SessionForm extends React.Component {
                         Already have an account? <Link className="signup-login-link" to="/login">Login here!</Link>
                     </div>
                 </div>
+            </div>
             </div>
         )
     }
