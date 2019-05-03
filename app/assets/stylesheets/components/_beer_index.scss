@@ -1,15 +1,17 @@
  @import "../base/colors.scss";
  @import "../base/fonts.scss";
 
+.beer-bg {
+    height: 100%;
+    width: 100%;
+    background-color: $bg-grey;
+    position: fixed;
+}
+
 .beer-content {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    background-color: $bg-grey;
- }
-
- .beer-index-ul {
-
  }
 
 .beer-index-outer {
@@ -38,8 +40,6 @@
 .beer-index-item {
     // display: flex;
     width: 650px;
-    // flex-direction: row;
-    font-size: 0;
     padding-top: 10px;
 }
 
@@ -52,21 +52,27 @@
     padding-left: 5px;
 }
 
-.beer-details p {
+// .beer-details p {
+//     margin: 5px;
+//     font-size: 16px;
+// }
+
+.beer-brewery {
+    color: $dark-yellow;
     margin: 5px;
     font-size: 16px;
 }
 
-.beer-brewery {
-    color: $dark-yellow;
-}
-
 .beer-desc {
     color: $beer-dtl-grey; 
+    margin: 5px;
+    font-size: 16px;
 }
 
 .beer-type {
     color: $beer-dtl-dark-grey;
+    margin: 5px;
+    font-size: 16px;
 }
 
 .beer-extra-details {

@@ -1,13 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import BeerExtraDetail from '../beer_extra_detail';
+import BeerIcon from '../beer_icon';
 
 const BeerIndexItem = (props) => {
     return(
         <li className="beer-index-item">
-            <div className="beer-img">
-                <i className="fas fa-beer"></i>
-            </div>
+            <BeerIcon beerType={props.beer.beerType} />
             <div className="beer-details">
                 <Link className="beer-title" to={`/beers/${props.beer.id}`}>
                     {props.beer.name}

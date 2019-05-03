@@ -1,0 +1,58 @@
+ @import "../base/colors.scss";
+ @import "../base/fonts.scss";
+
+.beer-show-outer {
+    margin-top: 30px;
+}
+
+.beer-details-show {
+    font-family: $main-font;
+    display: inline-block;
+    box-sizing: border-box;
+    margin: 5px;
+    padding-left: 5px;
+    max-width: 74%;
+    width: 74%;
+    min-height: 100px;
+}
+
+.beer-details-show p {
+    display: block;
+    width: 300px;
+    box-sizing: border-box;
+    padding: 2px;
+    margin: 2px;
+}
+
+.beer-title-show {
+    font-size: 32px;
+    font-weight: 400;
+}
+
+.beer-brewery-show {
+    color: $beer-orange;
+    font-size: 20px;
+}
+
+.beer-type-show {
+    color: $beer-grey;
+    font-size: 16px;
+}
+
+.beer-show-desc-box {
+    display: flex;
+    // justify-content: center;
+    background-color: white;
+    width: 700px;
+    align-self: center
+}
+
+.beer-show-desc {
+    display: block;
+    margin-left: 25px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 2px;
+    font-family: $main-font;
+    color: $beer-dtl-grey;
+}

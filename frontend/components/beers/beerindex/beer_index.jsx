@@ -15,17 +15,19 @@ class BeerIndex extends React.Component {
             );
         } else {
             return(
-                <div className="beer-content">
-                    <div className="beer-index-title">
-                        All Beers
-                    </div>
-                    <div className="beer-index-outer"> 
-                        <div>
-                            <ul className="beer-index-ul">
-                                {this.props.beers.map((beer, i) => {
-                                    return(<BeerIndexItem { ...beer } key={i} />)
-                                })}
-                            </ul>
+                <div className="beer-bg">
+                    <div className="beer-content">
+                        <div className="beer-index-title">
+                            All Beers
+                        </div>
+                        <div className="beer-index-outer"> 
+                            <div>
+                                <ul className="beer-index-ul">
+                                    {this.props.beers.map((beer, i) => {
+                                        return(<BeerIndexItem { ...beer } key={i} />)
+                                    })}
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
