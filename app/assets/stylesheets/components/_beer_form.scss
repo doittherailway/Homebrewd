@@ -1,0 +1,64 @@
+ @import "../base/colors.scss";
+ @import "../base/fonts.scss";
+
+.beer-form-outer {
+    display: flex;
+    justify-content: center;
+}
+
+.beer-form-container {
+    width: 500px;
+    justify-content: center;
+    display: flex;
+    align-content: center;
+    align-self: center;
+ }
+
+
+.beer-form label {
+    font-family: $main-font;
+    color: $beer-dtl-grey;
+    display: block;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 11px;
+ }
+
+ .beer-form input {
+    border: 1px solid $cc-grey;
+    border-radius: 4px;
+    padding: 6px 8px;
+    display: block;
+ }
+
+ .beer-form textarea {
+    border: 1px solid $cc-grey;
+    border-radius: 4px;
+    height: 100px;
+    box-sizing: border-box;
+    resize: none;
+    display: block;
+    width: 430px;
+ }
+
+ .beer-form-name {
+    display: block;
+ }
+
+ .beer-form-abv {
+    display: inline-block;
+ }
+
+ .beer-form-submit {
+    border: 0;
+    background-color: $beer-yellow;
+    color: white;
+    align-content: center;
+    text-align: center;
+    text-transform: capitalize;
+    font-family: $main-font;
+    width: 430px;
+    height: 40px;
+    font-weight: 600;
+    margin-top: 10px;
+ }
