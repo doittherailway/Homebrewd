@@ -7,11 +7,11 @@ class Api::BeersController < ApplicationController
 
     def new
         @beer = Beer.new()
+        render "api/beers/form"
     end
 
     def create
         @beer = Beer.new(beer_params)
-
         if @beer.save
             render "api/beers/show"
         else
@@ -25,7 +25,7 @@ class Api::BeersController < ApplicationController
 
     def edit
         @beer = Beer.find(params[:id])
-        render "api/beers/show"
+        render "api/beers/form"
     end
 
     def update

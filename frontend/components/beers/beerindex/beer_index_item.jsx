@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import BeerExtraDetail from '../beer_extra_detail';
 import BeerIcon from '../beer_icon';
+import BeerDesc from '../beer_desc';
 
 const BeerIndexItem = (props) => {
     return(
@@ -14,7 +15,7 @@ const BeerIndexItem = (props) => {
             
                 <p className="beer-brewery">{props.beer.brewery}</p>
                 <p className="beer-type">{props.beer.beerType}</p>
-                <p className="beer-desc">{props.beer.description}</p>
+                <BeerDesc fullDesc={props.beer.description} truncDesc={props.beer.truncDescShort} charCount={150} />
             </div>
             <BeerExtraDetail beer={props.beer} />
         </li>

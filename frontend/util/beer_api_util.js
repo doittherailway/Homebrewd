@@ -11,13 +11,15 @@ export const fetchBeer = (beerId) => (
     })
 );
 
-export const createBeer = (beer) => (
+export const createBeer = (beer) => {
+    debugger;
+    return(
     $.ajax({
         method: "post",
         url: "api/beers",
         data: { beer },
     })
-);
+)};
 export const updateBeer = (beer) => (
     $.ajax({
         method: "patch",

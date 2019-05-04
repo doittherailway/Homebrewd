@@ -17,29 +17,24 @@ class BeerDesc extends React.Component {
         }
         else {
             this.setState({
-                expanded: false
+                expanded: true
             });
         }
     }
 
+
     render () {
         if (this.props.fullDesc.length <= this.props.charCount) {
-            return(
-                <div className="beer-show-desc-box">
+            return(   
                     <p className="beer-show-desc">{this.props.truncDesc}</p>
-                </div>
             )
         } else if (this.state.expanded === false) {
             return(
-                <div className="beer-show-desc-box">
-                    <p className="beer-show-desc">{this.props.truncDesc}...<a onClick={this.truncateToggle} className="beer-desc-read">Read More</a></p>
-                </div>
+                    <p className="beer-show-desc">{this.props.truncDesc} ...<a onClick={this.truncateToggle} className="beer-desc-read">Read More</a></p>
             )
         } else {
             return(
-                <div className="beer-show-desc-box">
-                    <p className="beer-show-desc">{this.props.fullDesc}<a onClick={this.truncateToggle} className="beer-desc-read">Read Less</a></p>
-                </div>
+                    <p className="beer-show-desc">{this.props.fullDesc}<a onClick={this.truncateToggle} className="beer-desc-read"> Read Less</a></p>
             )
         }
     }

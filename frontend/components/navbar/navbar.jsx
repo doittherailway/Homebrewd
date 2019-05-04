@@ -13,6 +13,7 @@ class Navbar extends React.Component {
             return(
                 <div className="navbar">
                     <Link to="/" className="nav-logo">HOMEBREWD</Link>
+                    <Link to="/beers" className="nav-beers">Beers</Link>
                     <h4>Welcome, {this.props.currentUser.username}! </h4>
                     <button className="nav-button" onClick={this.props.logout}>Logout</button>
                 </div>

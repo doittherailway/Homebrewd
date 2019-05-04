@@ -14,7 +14,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    createBeer: (beer) => (dispatch(createBeer(beer))),
+    beerFormAction: (beer) => (dispatch(createBeer(beer))),
     receiveBeerErrors: (errors) => (dispatch(receiveBeerErrors(errors)))
 });
 
