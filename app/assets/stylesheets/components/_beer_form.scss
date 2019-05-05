@@ -14,6 +14,9 @@
     flex-direction: column;
     align-self: center;
     background-color: white;
+    margin-top: 30px;
+    padding-bottom: 20px;
+    box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.1)
  }
 
  .beer-form-header {
@@ -25,6 +28,7 @@
    text-align: left;
    width: 86%;
    font-weight: 700;
+   margin-top: 20px;
  }
 
  .beer-form-header-sub {
@@ -44,13 +48,14 @@
  }
 
  .beer-form input {
-    border: 1px solid $cc-grey;
-    border-radius: 4px;
-    padding: 6px 8px;
-    display: block;
-    color: black;
-    background-color: white;
-
+   border: 1px solid $cc-grey;
+   border-radius: 4px;
+   padding: 6px 8px;
+   display: block;
+   color: black;
+   background-color: white;
+   font-size: 16px;
+   margin-bottom: 10px;
  }
 
  .beer-form textarea {
@@ -63,6 +68,8 @@
     width: 430px;
     color: black;
     background-color: white;
+   font-size: 16px;
+   padding: 6px 8px;
  }
 
  .beer-form-name {
@@ -70,13 +77,55 @@
    width: 96%;
  }
 
+ .form-brewery-div {
+    display: flex;
+ }
+
+ .form-brewery-select-div {
+   position: relative;
+   display: block;
+ }
+
+ .form-brewery-div select {
+   -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  font-size: 14px;
+  padding: 7px;
+  background-color: white;
+   width: 430px;
+//   width: 300px;
+ }
+
+ .form-brewery-select-div:after {
+   content: "▼";
+   position: absolute;
+   top: 3px;
+   right: 8px;
+   bottom: 0;
+   font-size: 0.8em;
+   line-height: 30px;
+   color: $beer-yellow;
+   pointer-events: none;
+ }
+
+ .form-abv-style-div {
+    display: flex;
+    justify-content: space-between;
+ }
+
+ .beer-form-abv-div {
+   width: 30%;
+ }
+
  .beer-form-abv {
-    display: inline-block;
+    display: block;
+   width: 50px;
  }
 
  .select-div {
    position: relative;
-   display: inline-block;
+   display: block;
  }
 
  #beerStyleSelect {
@@ -84,15 +133,17 @@
   -moz-appearance: none;
   appearance: none;
   font-size: 14px;
-  padding: 4px;
+  padding: 7px;
+  background-color: white;
+  width: 340px;
  }
 
  
  .select-div:after {
    content: "▼";
    position: absolute;
-   top: -1px;
-   right: 5px;
+   top: 3px;
+   right: 8px;
    bottom: 0;
    font-size: 0.8em;
    line-height: 30px;

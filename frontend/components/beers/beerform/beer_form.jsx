@@ -52,6 +52,7 @@ class BeerForm extends React.Component {
         this.state = {
             name: this.props.beer.name,
             brewery_id: this.props.beer.brewery_id,
+            brewery_name: this.props.beer.brewery_name,
             beer_type: this.props.beer.beerType, // beer_type
             description: this.props.beer.description,
             abv: this.props.beer.abv
@@ -173,21 +174,35 @@ class BeerForm extends React.Component {
                                 <label> Beer Name
                                     <input className="beer-form-name"type="text" value={this.state.name} onChange={(e) => (this.handleChange("name", e))} ></input>
                                 </label>
-                                <label> Brewery Name
-                                    <select name="brewery">
-                                        <option value="Unknown">Brewery Unknown</option>
-                                    </select>
-                                </label>
-                                <label> Abv
-                                    <input type="text" className="beer-form-abv" value={this.state.abv} onChange={(e) => (this.handleChange("abv", e))}></input>
-                                </label>
-                                <label>Style
-                                    <div className="select-div">
-                                        <select id="beerStyleSelect" value={this.state.beer_thype} onChange={(e) => (this.handleChange("beer_type", e))}></select>
+                                <div className="form-brewery-div">
+                                    <label> Brewery Name
+                                        <div className="form-brewery-select-div">
+                                            <select name="brewery" onChange={(e) => (this.handleChange("brewery_name", e))}>
+                                                <option value="Unknown">Brewery Unknown</option>
+                                                <option value="Basement Brewing">Basement Brewing</option>
+                                                <option value="Hilarious Homebrew">Hilarious Homebrew</option>
+                                                <option value="Mad Malts Brewing">Mad Malts Brewing</option>
+                                                <option value="Laughunitas Brewing Co">Laughunitas Brewing Co</option>
+                                                <option value="Yardwork Brewing">Yardwork Brewing</option>
+                                                <option value="Yarnistice Brews">Yarnistice Brews</option>
+                                            </select>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div className="form-abv-style-div">
+                                    <div className="beer-form-abv-div">
+                                        <label> Abv
+                                            <input type="text" className="beer-form-abv" value={this.state.abv} onChange={(e) => (this.handleChange("abv", e))}></input>
+                                        </label>
                                     </div>
-                                </label>
+                                    <label>Style
+                                        <div className="select-div">
+                                            <select id="beerStyleSelect" value={this.state.beer_thype} onChange={(e) => (this.handleChange("beer_type", e))}></select>
+                                        </div>
+                                    </label>
+                                </div>
                                 <label> Description
-                                    <textarea type="text" className="beer-form-description" value={this.state.description} onChange={(e) => (this.handleChange("description", e))}></textarea>
+                                    <textarea type="text" className="beer-form-description" maxLength="750" value={this.state.description} onChange={(e) => (this.handleChange("description", e))}></textarea>
                                 </label>
                                 {this.submitButton()}
                             </form>

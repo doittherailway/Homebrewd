@@ -8,7 +8,8 @@ const mapStateToProps = (state) => ({
             brewery_id: 1,
             beer_type: "",
             description: "",
-            abv: ""
+            abv: "",
+            brewery_name: ""
         },
     errors: state.errors
 });

@@ -11,7 +11,15 @@ class Api::BeersController < ApplicationController
     end
 
     def create
-        @beer = Beer.new(beer_params)
+        @beer = Beer.new({
+            name: beer_params[:name],
+            description: beer_params[:description],
+            beer_type: beer_params[:beer_type],
+            abv: beer_params[:abv]  
+        })
+
+        @beer.brewery_id = Beer.find_brewery_id(beer_params[:brewery_name])
+        debugger
         if @beer.save
             render "api/beers/show"
         else
@@ -31,7 +39,13 @@ class Api::BeersController < ApplicationController
     def update
         @beer = Beer.find(params[:id])
 
-        if @beer.update(beer_params)
+        @beer.name = beer_params[:name]
+        @beer.description = beer_params[:description]
+        @beer.beer_type = beer_params[:beer_type]
+        @beer.abv = beer_params[:abv] 
+        @beer.brewery_id = Beer.find_brewery_id(beer_params[:brewery_name])
+
+        if @beer.save
             render "api/beers/show"
         else
             render json: @beer.errors.full_messages, status: 422
@@ -49,6 +63,7 @@ class Api::BeersController < ApplicationController
         params.require(:beer).permit(
             :name,
             :brewery_id,
+            :brewery_name,
             :description,
             :beer_type,
             :abv
