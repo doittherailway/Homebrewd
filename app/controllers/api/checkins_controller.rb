@@ -19,7 +19,7 @@ class Api::CheckinsController < ApplicationController
         @checkin = Checkin.new(checkin_params)
         @beer = Beer.find(@checkin.beer_id)
         if @checkin.save
-            render "api/beers/show" #maybe some different render
+            render "api/checkins/show" #maybe some different render, was /beers/id
         else
             render json: @checkin.errors.full_messages, status: 422
         end

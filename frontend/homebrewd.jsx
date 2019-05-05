@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
-import { createCheckin, fetchResourceCheckins, fetchCheckins } from './util/checkin_api_util';
+import { fetchCheckins, fetchResourceCheckins, createCheckin } from './actions/checkin_actions';
+
 
 document.addEventListener('DOMContentLoaded', () => {
     const root = document.getElementById('root');
@@ -24,10 +25,12 @@ document.addEventListener('DOMContentLoaded', () => {
         store = configureStore();
     }
 
-    //Remove after testing
-    window.createCheckin = createCheckin;
-    window.fetchResourceCheckins = fetchResourceCheckins;
+    //testing remove later
+    window.dispatch = store.dispatch;
+    window.getState = store.getState;
     window.fetchCheckins = fetchCheckins;
+    window.fetchResourceCheckins = fetchResourceCheckins;
+    window.createCheckin = createCheckin;
 
     ReactDOM.render(<Root store={store} />, root);
 });
