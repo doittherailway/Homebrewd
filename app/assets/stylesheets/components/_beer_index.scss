@@ -1,12 +1,12 @@
  @import "../base/colors.scss";
  @import "../base/fonts.scss";
 
-.beer-bg {
-    height: 100%;
-    width: 100%;
-    background-color: $bg-grey;
-    position: fixed;
-}
+// .beer-bg {
+//     height: 100%;
+//     width: 100%;
+//     background-color: $bg-grey;
+//     position: absolute;
+// }
 
 .beer-content {
     display: flex;
@@ -128,5 +128,51 @@
     vertical-align: top;
     line-height: 80px;
     border-radius: 3px;
+}
+
+.beer-index-end {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    width: 700px;
+    height: 40px;
+    align-self: center;
+}
+
+.beer-index-add-container {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    width: 700px;
+    align-self: center;
+    margin-top: -10px;
+    height: 100px;
+}
+
+.beer-index-add {
+    background-color: $light-ylw;
+    width: 65%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: $main-font;
+    font-size: 16px;
+    margin-bottom: 10px;
+    padding: 5px;
+    height: 60px;
+}
+
+.beer-index-add p {
+    padding: 10px;
+}
+
+.beer-index-add-link {
+    color: $beer-orange;
+    padding-bottom: 10px;
+}
+
+.beer-index-add-link:hover {
+    color: $beer-light-orange;
 }
 

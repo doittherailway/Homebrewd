@@ -6,10 +6,10 @@ const mapStateToProps = (state) => ({
     formType: 'Add',
     beer: { name: "", 
             brewery_id: 1,
-            beer_type: "",
+            beerType: "Belgian",
             description: "",
             abv: "",
-            brewery_name: ""
+            brewery: ""
         },
     errors: state.errors
 });

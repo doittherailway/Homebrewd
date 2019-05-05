@@ -53,16 +53,18 @@ class Beer < ApplicationRecord
 
     
 
-    def assign_null_brewery
+    def self.assign_null_brewery
         return Brewery.find_by(name: 'Unknown').id
     end
 
     def self.find_brewery_id(brewery_name)
-        brewery_id_find = Brewery.find_by(name: brewery_name).id
-        if !brewery_id_find 
-            return Beer.assign_null_brewery!
+
+        brewery = Brewery.find_by(name: brewery_name)
+
+        if brewery != nil
+            return brewery.id
         else
-            return brewery_id_find
+            return Beer.assign_null_brewery
         end
     end
 

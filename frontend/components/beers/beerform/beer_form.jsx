@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router';
+import { RECEIVE_BEER } from '../../../actions/beer_actions';
 
 const beerStyles = [
     "Belgian",
@@ -46,13 +47,23 @@ const beerStyles = [
     "Witbier"
 ];
 
+const breweryNames = [
+    "Unknown",
+    "Basement Brewing",
+    "Hilarious Homebrew",
+    "Mad Malts Brewing",
+    "Laughunitas Brewing Co",
+    "Yardwork Brewing",
+    "Yarnistice Brews"
+];
+
 class BeerForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             name: this.props.beer.name,
             brewery_id: this.props.beer.brewery_id,
-            brewery_name: this.props.beer.brewery_name,
+            brewery: this.props.beer.brewery,
             beer_type: this.props.beer.beerType, // beer_type
             description: this.props.beer.description,
             abv: this.props.beer.abv
@@ -62,18 +73,23 @@ class BeerForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.styleOptions = this.styleOptions.bind(this);
         this.submitButton = this.submitButton.bind(this);
-        this.navigateToBeers = this.navigateToBeers.bind(this);
         this.formHeader = this.formHeader.bind(this);
+        this.breweryOptions = this.breweryOptions.bind(this);
         
     }
 
     handleSubmit(e) {
         e.preventDefault();
-
-        this.props.beerFormAction(this.state);
-        // this.navigateToBeers();
+        this.props.beerFormAction(this.state)
+        .then((action) => {
+            if (action.type === "RECEIVE_BEER") {
+                return(this.props.history.push(`/beers/${action.beer.id}`))
+            }
+        });
     }
 
+
+    
     handleChange(field, e) {
         let val = e.currentTarget.value;
         this.setState({
@@ -84,6 +100,7 @@ class BeerForm extends React.Component {
     componentDidMount() {
         this.props.receiveBeerErrors([]);
         this.styleOptions();
+        this.breweryOptions();
         if (this.props.formType === 'Edit') {
             this.setState({
                 id: this.props.beer.id
@@ -123,6 +140,22 @@ class BeerForm extends React.Component {
         sel.appendChild(fragment);
     }
 
+    breweryOptions(){
+        let sel = document.getElementById('brewerySelect');
+        let fragment = document.createDocumentFragment();
+        let breweryName = this.props.brewery
+        breweryNames.forEach((brewery, index) => {
+            var option = document.createElement('option');
+            option.innerHTML = brewery;
+            option.value = brewery;
+            if (breweryName === brewery) {
+                option.selected = "selected"
+            }
+            fragment.appendChild(option);
+        });
+        sel.appendChild(fragment);
+    }
+
     submitButton(){
         if (this.props.formType === 'Edit') {
             return(
@@ -153,11 +186,6 @@ class BeerForm extends React.Component {
         }
     }
 
-    navigateToBeers() {
-        this.props.history.push(`/beers/`); //${this.state.beer.id}
-    }
-
-
     render() {
         if (this.props.formType === 'Edit' && this.props.beer === undefined) {
             return(null);
@@ -177,14 +205,7 @@ class BeerForm extends React.Component {
                                 <div className="form-brewery-div">
                                     <label> Brewery Name
                                         <div className="form-brewery-select-div">
-                                            <select name="brewery" onChange={(e) => (this.handleChange("brewery_name", e))}>
-                                                <option value="Unknown">Brewery Unknown</option>
-                                                <option value="Basement Brewing">Basement Brewing</option>
-                                                <option value="Hilarious Homebrew">Hilarious Homebrew</option>
-                                                <option value="Mad Malts Brewing">Mad Malts Brewing</option>
-                                                <option value="Laughunitas Brewing Co">Laughunitas Brewing Co</option>
-                                                <option value="Yardwork Brewing">Yardwork Brewing</option>
-                                                <option value="Yarnistice Brews">Yarnistice Brews</option>
+                                            <select className="brewery" id="brewerySelect" onChange={(e) => (this.handleChange("brewery", e))}>
                                             </select>
                                         </div>
                                     </label>
@@ -215,3 +236,11 @@ class BeerForm extends React.Component {
 }
 
 export default withRouter(BeerForm);
+
+// <option value="Unknown">Brewery Unknown</option>
+//     <option value="Basement Brewing">Basement Brewing</option>
+//     <option value="Hilarious Homebrew">Hilarious Homebrew</option>
+//     <option value="Mad Malts Brewing">Mad Malts Brewing</option>
+//     <option value="Laughunitas Brewing Co">Laughunitas Brewing Co</option>
+//     <option value="Yardwork Brewing">Yardwork Brewing</option>
+//     <option value="Yarnistice Brews">Yarnistice Brews</option>

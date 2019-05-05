@@ -48,7 +48,7 @@
 }
 
 .beer-show-desc {
-    display: block;
+    display: inline-block;
     margin-left: 5px;
     margin-top: 10px;
     margin-bottom: 15px;
@@ -56,6 +56,10 @@
     padding: 2px;
     font-family: $main-font;
     color: $beer-dtl-grey;
+}
+
+.beer-show-desc-left {
+    margin-left: 20px;
 }
 
 .beer-desc-read {

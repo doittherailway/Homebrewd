@@ -1,0 +1,8 @@
+ @import "../base/colors.scss";
+ @import "../base/fonts.scss";
+
+#root {
+    background-color: $bg-grey;
+    height: 100%;
+    width: 100%;
+}

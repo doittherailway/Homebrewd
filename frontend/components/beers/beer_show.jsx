@@ -3,6 +3,7 @@ import BeerExtraDetail from './beer_extra_detail'
 import BeerIcon from './beer_icon';
 import BeerDesc from './beer_desc';
 import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router';
 
 class BeerShow extends React.Component {
 
@@ -20,6 +21,7 @@ class BeerShow extends React.Component {
         let result = confirm("Are you sure you wish to delete this beer?");
         if (result){
             this.props.deleteBeer(this.props.beer.id);
+            this.props.history.push(`/beers`);
         }
     }
  
@@ -42,6 +44,7 @@ class BeerShow extends React.Component {
                                 </div>   
                             </div>
                             <div className="beer-show-desc-box"> 
+                                <div className="beer-show-desc-left"></div>
                                 <BeerDesc fullDesc={this.props.beer.description} truncDesc={this.props.beer.truncDescShort} charCount={84} />
                             </div>
                             <div className="beer-show-line-outer">
@@ -65,4 +68,4 @@ class BeerShow extends React.Component {
 
 }
 
-export default BeerShow;
+export default withRouter(BeerShow);

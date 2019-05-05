@@ -12,7 +12,6 @@ export const fetchBeer = (beerId) => (
 );
 
 export const createBeer = (beer) => {
-    debugger;
     return(
     $.ajax({
         method: "post",
