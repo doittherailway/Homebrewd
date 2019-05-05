@@ -1,7 +1,17 @@
 class Api::CheckinsController < ApplicationController
 
     def index
-        @checkins = Checkin.all
+        # debugger
+        if params[:resource_type]
+            if params[:resource_type] == 'User'
+                @checkins = Checkin.where(user_id: params[:resource_id])
+            else
+                @checkins = Checkin.where(beer_id: params[:resource_id])
+            end
+        else 
+            @checkins = Checkin.all
+        end
+        
         render "api/checkins/index"
     end
 
