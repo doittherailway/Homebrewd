@@ -32,7 +32,7 @@ class BeerIndex extends React.Component {
                         <div className="beer-index-end"></div>
                         <div className="beer-index-add-container">
                             <div className="beer-index-add">
-                                    <p>Don't see you beer you're looking for?</p>
+                                    <p>Don't see the beer you're looking for?</p>
                                     <Link className="beer-index-add-link" to="/beers/new">You can add it here</Link>
                             </div>
                         </div>
