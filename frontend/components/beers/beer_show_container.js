@@ -5,9 +5,11 @@ import { fetchBeer, updateBeer, deleteBeer } from '../../actions/beer_actions';
 const mapStateToProps = (state, ownProps) => {
     let beerId = ownProps.match.params.beerId;
     let beer = state.entities.beers[beerId]; 
+    let userId = state.session.currentUserId;
     return({
         beerId: beerId,
-        beer: beer
+        beer: beer,
+        userId: userId
     });
 };
 

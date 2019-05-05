@@ -1,7 +1,7 @@
 
 json.id checkin.id
-json.userId checkin.user_id
-json.beerId checkin.beer_id
+json.userName User.find(checkin.user_id).username
+json.beerName Beer.find(checkin.beer_id).name
 json.description checkin.description
 json.rating checkin.rating
 json.location checkin.location

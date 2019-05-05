@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Route, Redirect, withRouter } from 'react-router-dom';
 import NavbarContainer from '../components/navbar/navbar_container';
+import CheckinIndexContainer from '../components/checkins/checkin_index_container';
 
 const mapStateToProps = state => {
     return { loggedIn: Boolean(state.session.currentUserId) };
@@ -12,9 +13,8 @@ const AuthSlash = ({ component: Component, path, loggedIn, exact }) => (
         !loggedIn ? (
             <Component {...props} />
         ) : (
-                <div>
-                    Checkin Container 
-                </div>
+                    <CheckinIndexContainer />
+
             )
     )} />
 );

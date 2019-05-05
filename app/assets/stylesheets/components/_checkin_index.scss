@@ -1,0 +1,15 @@
+ @import "../base/colors.scss";
+ @import "../base/fonts.scss";
+
+.checkin-index-outer {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.checkin-index-container {
+    display: flex;
+    width: 700px;
+    background-color: white;
+}

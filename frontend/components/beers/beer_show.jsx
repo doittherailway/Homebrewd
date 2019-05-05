@@ -4,6 +4,8 @@ import BeerIcon from './beer_icon';
 import BeerDesc from './beer_desc';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
+import CheckinBeerIndexContainer from '../checkins/checkin_beer_index_container';
+import CheckinButton from '../checkins/checkin_button';
 
 class BeerShow extends React.Component {
 
@@ -46,6 +48,7 @@ class BeerShow extends React.Component {
                             <div className="beer-show-desc-box"> 
                                 <div className="beer-show-desc-left"></div>
                                 <BeerDesc fullDesc={this.props.beer.description} truncDesc={this.props.beer.truncDescShort} charCount={84} />
+                                <CheckinButton userId={this.props.userId} beerId={this.props.beerId} />
                             </div>
                             <div className="beer-show-line-outer">
                                 <div className="beer-show-line"></div>
@@ -55,6 +58,9 @@ class BeerShow extends React.Component {
                                 <a className="delete-beer" onClick={this.handleDelete}>Delete Beer</a>
                             </div>
                         </div>
+                    </div>
+                    <div className="checkin-container-beer"> 
+                        <CheckinBeerIndexContainer beerId={this.props.beer.id}/>
                     </div>
                 </div>
             )
