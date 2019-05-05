@@ -48,6 +48,7 @@ class Beer < ApplicationRecord
     validates :name, uniqueness: true
     validates :name, :brewery_id, :description, :beer_type, presence: true
     validates :beer_type, inclusion: BEER_TYPES
+    validates :abv, numericality: {greater_than_or_equal_to: 0, less_than_or_equal_to: 25}, allow_nil: true
 
     belongs_to :brewery
 
