@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 
 const beerStyles = [
     "Belgian",
@@ -59,12 +60,17 @@ class BeerForm extends React.Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.styleOptions = this.styleOptions.bind(this);
+        this.submitButton = this.submitButton.bind(this);
+        this.navigateToBeers = this.navigateToBeers.bind(this);
+        this.formHeader = this.formHeader.bind(this);
         
     }
 
     handleSubmit(e) {
         e.preventDefault();
+
         this.props.beerFormAction(this.state);
+        // this.navigateToBeers();
     }
 
     handleChange(field, e) {
@@ -77,6 +83,11 @@ class BeerForm extends React.Component {
     componentDidMount() {
         this.props.receiveBeerErrors([]);
         this.styleOptions();
+        if (this.props.formType === 'Edit') {
+            this.setState({
+                id: this.props.beer.id
+            });
+        }
     }
 
     renderErrors() {
@@ -111,37 +122,76 @@ class BeerForm extends React.Component {
         sel.appendChild(fragment);
     }
 
+    submitButton(){
+        if (this.props.formType === 'Edit') {
+            return(
+                <button className="beer-form-submit">Submit Edit</button>
+            )
+        } else {
+            return(
+                <button className="beer-form-submit">Add new beer</button>
+            )
+        }
+    }
+
+    formHeader(){
+        if (this.props.formType === "Edit") {
+            return (
+                <div>
+                    <p>Propose an Edit</p>
+                    <p className="beer-form-header-sub">Did you notice something incorrect with the details of this beer? Propose an edit.</p>
+                </div>
+            )
+        } else {
+            return (
+                <div>
+                    <p>Add New Beer</p>
+                    <p className="beer-form-header-sub">Didn't find what you were looking for? Use this form to add a new beer.</p>
+                </div>
+            )
+        }
+    }
+
+    navigateToBeers() {
+        this.props.history.push(`/beers/`); //${this.state.beer.id}
+    }
+
 
     render() {
         if (this.props.formType === 'Edit' && this.props.beer === undefined) {
             return(null);
-        } else if (0 === 1) {
-            return (null); //placeholder
         } else {
             return(
-                <div className="beer-form-outer">
-                    <div className="beer-form-container">
-                    {this.renderErrors()}
-                        <form className="beer-form" onSubmit={this.handleSubmit}>
-                            <label> Beer Name
-                                <input className="beer-form-name"type="text" value={this.state.name} onChange={(e) => (this.handleChange("name", e))} ></input>
-                            </label>
-                            <label> Brewery
-                                <select name="brewery">
-                                    <option value="Unknown">Brewery Unknown</option>
-                                </select>
-                            </label>
-                            <label> Abv
-                                <input type="text" className="beer-form-abv" value={this.state.abv} onChange={(e) => (this.handleChange("abv", e))}></input>
-                            </label>
-                            <label>Style
-                                <select id="beerStyleSelect" value={this.state.beer_type} onChange={(e) => (this.handleChange("beer_type", e))}></select>
-                            </label>
-                            <label> Description
-                                <textarea type="text" className="beer-form-description" value={this.state.description} onChange={(e) => (this.handleChange("description", e))}></textarea>
-                            </label>
-                            <button className="beer-form-submit">Add new beer</button>
-                        </form>
+                <div className="beer-bg">
+                    <div className="beer-form-outer">
+                        <div className="beer-form-container">
+                        <div className="beer-form-header">
+                            {this.formHeader()}
+                        </div>
+                        {this.renderErrors()}
+                            <form className="beer-form" onSubmit={this.handleSubmit}>
+                                <label> Beer Name
+                                    <input className="beer-form-name"type="text" value={this.state.name} onChange={(e) => (this.handleChange("name", e))} ></input>
+                                </label>
+                                <label> Brewery Name
+                                    <select name="brewery">
+                                        <option value="Unknown">Brewery Unknown</option>
+                                    </select>
+                                </label>
+                                <label> Abv
+                                    <input type="text" className="beer-form-abv" value={this.state.abv} onChange={(e) => (this.handleChange("abv", e))}></input>
+                                </label>
+                                <label>Style
+                                    <div className="select-div">
+                                        <select id="beerStyleSelect" value={this.state.beer_thype} onChange={(e) => (this.handleChange("beer_type", e))}></select>
+                                    </div>
+                                </label>
+                                <label> Description
+                                    <textarea type="text" className="beer-form-description" value={this.state.description} onChange={(e) => (this.handleChange("description", e))}></textarea>
+                                </label>
+                                {this.submitButton()}
+                            </form>
+                        </div>
                     </div>
                 </div>
             )
@@ -149,4 +199,4 @@ class BeerForm extends React.Component {
     }
 }
 
-export default BeerForm;
+export default withRouter(BeerForm);

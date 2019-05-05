@@ -12,7 +12,6 @@ class EditBeerForm extends React.Component {
   render () {
     if (this.props.beer !== undefined){
       const { beer, formType, beerFormAction, errors} = this.props;
-      debugger;
       return (
         <BeerForm
           beer={beer}
