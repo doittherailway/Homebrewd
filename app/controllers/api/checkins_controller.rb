@@ -1,12 +1,17 @@
 class Api::CheckinsController < ApplicationController
 
+    def index
+        @checkins = Checkin.all
+        render "api/checkins/index"
+    end
+
     def create
         @checkin = Checkin.new(checkin_params)
-
+        @beer = Beer.find(@checkin.beer_id)
         if @checkin.save
             render "api/beers/show" #maybe some different render
         else
-            render json: @beer.errors.full_messages, status: 422
+            render json: @checkin.errors.full_messages, status: 422
         end
     end
 
