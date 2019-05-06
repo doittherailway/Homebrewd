@@ -9,18 +9,24 @@ class CheckinIndex extends React.Component {
     //checkin type: allCheckins, beerCheckins, userCheckins
     componentDidMount(){
         this.props.fetchRelevantCheckins();
+        
     }
 
     render(){
         if (Object.keys(this.props.checkins).length === 0) {
             return (null);
         } else {
+
+            
+
             return(
                 <div className="checkin-index-outer">
                     <div className="checkin-index-container">
                         <ul className="checkin-index-ul">
                             {this.props.checkins.map((checkin, i) => {
-                                return (<CheckinIndexItem checkin={checkin} key={i} />)
+                                console.log(this.props.beers[checkin.beerId])
+                                console.log(this.props.users[checkin.userId])
+                                return (<CheckinIndexItem checkin={checkin} beer={this.props.beers[checkin.beerId]} user={this.props.users[checkin.userId]} key={i} />)
                             })}
                         </ul>
                     </div>

@@ -1,11 +1,10 @@
 import React from 'react';
 
 const CheckinIndexItem = (props) => {
-
     return(
         <li>
-            {props.checkin.user.userName}
-            {props.checkin.beer.beerName}
+            {props.user.name}
+            {props.beer.name}
             {props.checkin.description}
             {props.checkin.rating}
         </li>

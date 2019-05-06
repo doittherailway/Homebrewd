@@ -1,7 +1,7 @@
 class Api::BeersController < ApplicationController
 
     def index
-        @beers = Beer.all
+        @beers = Beer.all.includes(:brewery, :checkins)
         render "api/beers/index"
     end
 
@@ -26,7 +26,7 @@ class Api::BeersController < ApplicationController
     end
 
     def show
-        @beer = Beer.find(params[:id])
+        @beer = Beer.includes(:brewery, :checkins).find(params[:id])
     end
 
     def edit

@@ -5,17 +5,21 @@ export const RECEIVE_BEER = 'RECEIVE_BEER';
 export const REMOVE_BEER = 'REMOVE_BEER';
 export const RECEIVE_BEER_ERRORS = 'RECEIVE_ERRORS';
 
-const receiveBeers = (beers) => (
+const receiveBeers = (payload) => (
     {
         type: RECEIVE_ALL_BEERS,
-        beers
+        beers: payload.beers,
+        breweries: payload.breweries,
+        checkins: payload.checkins
     }
 );
 
-const receiveBeer = (beer) => (
+const receiveBeer = (payload) => (
     {
         type: RECEIVE_BEER,
-        beer
+        beer: payload.beer,
+        checkins: payload.checkins,
+        brewery: payload.brewery // do I break it down like this?
     }
 );
 

@@ -60,7 +60,7 @@ class BeerShow extends React.Component {
                         </div>
                     </div>
                     <div className="checkin-container-beer"> 
-                        <CheckinBeerIndexContainer beerId={this.props.beer.id}/>
+                        <CheckinBeerIndexContainer beerId={this.props.beer.id} />
                     </div>
                 </div>
             )

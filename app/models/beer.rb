@@ -52,6 +52,8 @@ class Beer < ApplicationRecord
 
     belongs_to :brewery
 
+    has_many :checkins
+
     
 
     def self.assign_null_brewery

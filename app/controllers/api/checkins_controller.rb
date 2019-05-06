@@ -4,12 +4,12 @@ class Api::CheckinsController < ApplicationController
         # debugger
         if params[:resource_type]
             if params[:resource_type] == 'User'
-                @checkins = Checkin.where(user_id: params[:resource_id])
+                @checkins = Checkin.where(user_id: params[:resource_id]).includes(:beer, :user)
             else
-                @checkins = Checkin.where(beer_id: params[:resource_id])
+                @checkins = Checkin.where(beer_id: params[:resource_id]).includes(:beer, :user)
             end
         else 
-            @checkins = Checkin.all
+            @checkins = Checkin.all.includes(:beer, :user)
         end
         
         render "api/checkins/index"

@@ -4,17 +4,21 @@ export const RECEIVE_ALL_CHECKINS = 'RECEIVE_ALL_CHECKINS';
 export const RECEIVE_CHECKIN = 'RECEIVE_CHECKIN';
 export const RECEIVE_CHECKIN_ERRORS = 'RECEIVE_CHECKIN_ERRORS';
 
-const receiveCheckins = (checkins) => (
+const receiveCheckins = (payload) => (
     {
         type: RECEIVE_ALL_CHECKINS,
-        checkins
+        checkins: payload.checkins,
+        beers: payload.beers,
+        users: payload.users
     }
 );
 
-const receiveCheckin = (checkin) => (
+const receiveCheckin = (payload) => (
     {
         type: RECEIVE_CHECKIN,
-        checkin
+        checkin: payload.checkin,
+        user: payload.user,
+        beer: payload.beer
     }
 );
 
