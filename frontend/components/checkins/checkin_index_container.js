@@ -3,8 +3,6 @@ import CheckinIndex from './checkin_index';
 import { fetchCheckins } from '../../actions/checkin_actions';
 
 const mapStateToProps = (state, ownProps) => {
-    console.log(ownProps);
-    console.log(state);
     return({
     checkins: Object.values(state.entities.checkins),
     users: state.entities.users,
@@ -12,12 +10,9 @@ const mapStateToProps = (state, ownProps) => {
 })
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-    
-    return({
+const mapDispatchToProps = (dispatch) => ({
     fetchRelevantCheckins: () => (dispatch(fetchCheckins())),
-    });
-};
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(CheckinIndex);
 

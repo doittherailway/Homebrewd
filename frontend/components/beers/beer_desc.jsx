@@ -4,7 +4,8 @@ class BeerDesc extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            expanded: false
+            expanded: false,
+            truncDesc: this.props.fullDesc.slice(0, this.props.charCount)
         };
         this.truncateToggle = this.truncateToggle.bind(this);
     }
@@ -26,11 +27,11 @@ class BeerDesc extends React.Component {
     render () {
         if (this.props.fullDesc.length <= this.props.charCount) {
             return(   
-                    <p className="beer-show-desc">{this.props.truncDesc}</p>
+                    <p className="beer-show-desc">{this.props.fullDesc}</p>
             )
         } else if (this.state.expanded === false) {
             return(
-                    <p className="beer-show-desc">{this.props.truncDesc} ...<a onClick={this.truncateToggle} className="beer-desc-read">Read More</a></p>
+                    <p className="beer-show-desc">{this.state.truncDesc} ...<a onClick={this.truncateToggle} className="beer-desc-read">Read More</a></p>
             )
         } else {
             return(

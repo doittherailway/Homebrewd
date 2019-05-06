@@ -3,7 +3,9 @@ import CheckinIndex from './checkin_index';
 import { fetchResourceCheckins } from '../../actions/checkin_actions';
 
 const mapStateToProps = (state) => ({
-    checkins: Object.values(state.entities.checkins)
+    checkins: Object.values(state.entities.checkins),
+    users: state.entities.users,
+    beers: state.entities.beers
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => {
