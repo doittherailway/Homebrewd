@@ -26,6 +26,11 @@
         json.beer_type beer.beer_type
         json.abv beer.abv
         json.createdAt beer.created_at.strftime("%m/%d/%Y")
+        if beer.photo.attached?
+            json.beerPhotoUrl url_for(beer.photo)
+        else
+            json.beerPhotoUrl ""
+        end
 
 
 

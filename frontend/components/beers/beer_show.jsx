@@ -36,7 +36,7 @@ class BeerShow extends React.Component {
                         <div className="beer-content">
                             <div className="beer-index-outer">
                                 <div className="beer-index-item">
-                                    <BeerIcon beerType={this.props.beer.beerType} />
+                                    <BeerIcon beerPhotoUrl={this.props.beer.beerPhotoUrl} />
                                     <div className="beer-details-show">
                                         <p className="beer-title-show">{this.props.beer.name}</p>
                                         <p className="beer-brewery-show">{this.props.beer.brewery}</p>

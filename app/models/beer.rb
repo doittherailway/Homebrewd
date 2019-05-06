@@ -54,7 +54,7 @@ class Beer < ApplicationRecord
 
     has_many :checkins
 
-    
+    has_one_attached :photo
 
     def self.assign_null_brewery
         return Brewery.find_by(name: 'Unknown').id
