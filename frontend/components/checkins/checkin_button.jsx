@@ -40,3 +40,4 @@ class CheckinButton extends React.Component {
 }
 
 export default CheckinButton;
+
