@@ -13,7 +13,8 @@ class CheckinIndex extends React.Component {
     }
 
     render(){
-        if (Object.keys(this.props.checkins).length === 0) {
+        debugger;
+        if (Object.keys(this.props.checkins).length === 0) { //I think there is checkins sitting in the state which is causing a render before a fetch
             return (null);
         } else {
 

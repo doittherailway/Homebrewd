@@ -7,14 +7,17 @@ const mapStateToProps = (state, ownProps) => {
     console.log(state);
     return({
     checkins: Object.values(state.entities.checkins),
-    users: Object.values(state.entities.users),
-    beers: Object.values(state.entities.beers)
+    users: state.entities.users,
+    beers: state.entities.beers
 })
 };
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = (dispatch, ownProps) => {
+    
+    return({
     fetchRelevantCheckins: () => (dispatch(fetchCheckins())),
-});
+    });
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(CheckinIndex);
 
