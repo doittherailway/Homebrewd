@@ -22,6 +22,9 @@ class CheckinIndex extends React.Component {
             return(
                 <div className="checkin-index-outer">
                     <div className="checkin-index-container">
+                        <div className="checkin-title-div">
+                            <p className="checkin-title-p">Recent Activity</p>
+                        </div>
                         <ul className="checkin-index-ul">
                             {this.props.checkins.map((checkin, i) => {
                                 return (<CheckinIndexItem checkin={checkin} beer={this.props.beers[checkin.beerId]} user={this.props.users[checkin.userId]} key={i} />)

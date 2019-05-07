@@ -36,10 +36,10 @@ class BeerShow extends React.Component {
                         <div className="beer-content">
                             <div className="beer-index-outer">
                                 <div className="beer-index-item">
-                                    <BeerIcon beerPhotoUrl={this.props.beer.beerPhotoUrl} />
+                                    <BeerIcon beerPhotoUrl={this.props.beer.beerPhotoUrl} src="beer-show" />
                                     <div className="beer-details-show">
                                         <p className="beer-title-show">{this.props.beer.name}</p>
-                                        <p className="beer-brewery-show">{this.props.beer.brewery}</p>
+                                        <p className="beer-brewery-show">{this.props.brewery.name}</p>
                                         <p className="beer-type-show">{this.props.beer.beerType}</p>  
                                     </div>
                                         <BeerExtraDetail beer={this.props.beer} />

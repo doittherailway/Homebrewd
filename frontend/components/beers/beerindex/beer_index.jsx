@@ -24,7 +24,8 @@ class BeerIndex extends React.Component {
                             <div>
                                 <ul className="beer-index-ul">
                                     {this.props.beers.map((beer, i) => {
-                                        return(<BeerIndexItem beer={beer} key={i} />)
+                                        console.log(this.props.breweries)
+                                        return(<BeerIndexItem beer={beer} brewery={this.props.breweries[beer.breweryId]} key={i} />)
                                     })}
                                 </ul>
                             </div>

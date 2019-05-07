@@ -17,7 +17,7 @@ class Api::CheckinsController < ApplicationController
 
     def create
         @checkin = Checkin.new(checkin_params)
-        @beer = Beer.find(@checkin.beer_id)
+        # @beer = Beer.find(@checkin.beer_id)
         if @checkin.save
             render "api/checkins/show" #maybe some different render, was /beers/id
         else
@@ -26,6 +26,7 @@ class Api::CheckinsController < ApplicationController
     end
 
     def show
+        @checkin = Checkin.includes(:beer, :user).find(params[:id])
         render "api/checkins/show"
     end
 

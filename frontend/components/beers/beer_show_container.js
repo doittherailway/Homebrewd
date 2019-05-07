@@ -6,10 +6,15 @@ const mapStateToProps = (state, ownProps) => {
     let beerId = ownProps.match.params.beerId;
     let beer = state.entities.beers[beerId]; 
     let userId = state.session.currentUserId;
+    let brewery; 
+    if (beer !== undefined) {
+        brewery = state.entities.breweries[beer.breweryId];
+    }
     return({
         beerId: beerId,
         beer: beer,
-        userId: userId
+        userId: userId,
+        brewery: brewery
     });
 };
 
