@@ -63,10 +63,11 @@ class BeerForm extends React.Component {
         this.state = {
             name: this.props.beer.name,
             brewery_id: this.props.beer.brewery_id,
-            brewery: this.props.beer.brewery,
+            // brewery: this.props.beer.brewery,
             beer_type: this.props.beer.beerType, // beer_type
             description: this.props.beer.description,
-            abv: this.props.beer.abv
+            abv: this.props.beer.abv,
+            photoFile: null
         };
         this.renderErrors = this.renderErrors.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -75,17 +76,33 @@ class BeerForm extends React.Component {
         this.submitButton = this.submitButton.bind(this);
         this.formHeader = this.formHeader.bind(this);
         this.breweryOptions = this.breweryOptions.bind(this);
+        this.handleFile = this.handleFile.bind(this);
+        this.addImage = this.addImage.bind(this);
         
     }
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.beerFormAction(this.state)
-        .then((action) => {
-            if (action.type === "RECEIVE_BEER") {
-                return(this.props.history.push(`/beers/${action.beer.id}`))
-            }
-        });
+        if (this.props.formType === 'Edit') {
+            const formData = new FormData();
+            formData.append('beer[name]', this.state.name);
+            formData.append('beer[brewery_id]', this.state.brewery_id);
+            formData.append('beer[beer_type]', this.state.beer_type);
+            formData.append('beer[description]', this.state.description);
+            formData.append('beer[abv]', this.state.abv);
+            formData.append('beer[photo]', this.state.photoFile);
+            formData.append('beer[id]', this.state.id);
+
+            this.props.beerFormAction(formData, this.state.id);
+
+        } else {
+            this.props.beerFormAction(this.state)
+            .then((action) => {
+                if (action.type === "RECEIVE_BEER") {
+                    return(this.props.history.push(`/beers/${action.beer.id}`))
+                }
+            });
+        }
     }
 
 
@@ -186,6 +203,22 @@ class BeerForm extends React.Component {
         }
     }
 
+    addImage() {
+        if (this.props.formType === "Edit") {
+            return(
+                <div className="beer-form-edit-photo-container">
+                    <input type="file" onChange={this.handleFile}/>
+                </div>
+            )
+        }
+    }
+
+    handleFile(e) {
+        this.setState({
+            photoFile: e.currentTarget.files[0]
+        })
+    }
+
     render() {
         if (this.props.formType === 'Edit' && this.props.beer === undefined) {
             return(null);
@@ -225,6 +258,7 @@ class BeerForm extends React.Component {
                                 <label> Description
                                     <textarea type="text" className="beer-form-description" maxLength="750" value={this.state.description} onChange={(e) => (this.handleChange("description", e))}></textarea>
                                 </label>
+                                {this.addImage()}
                                 {this.submitButton()}
                             </form>
                         </div>

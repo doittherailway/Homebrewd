@@ -65,7 +65,8 @@ class Api::BeersController < ApplicationController
             :description,
             :beer_type,
             :abv,
-            :id
+            :id, 
+            :photo
         )
     end
 end

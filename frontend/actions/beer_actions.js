@@ -58,8 +58,8 @@ export const createBeer = (beer) => (dispatch) => (
         ))
 );
 
-export const updateBeer = (beer) => (dispatch) => (
-    BeerApiUtil.updateBeer(beer)
+export const updateBeer = (beer, id) => (dispatch) => (
+    BeerApiUtil.updateBeer(beer, id)
         .then(beer => dispatch(receiveBeer(beer)), err => (
             dispatch(receiveBeerErrors(err.responseJSON))
         ))
