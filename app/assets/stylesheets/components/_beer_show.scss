@@ -68,6 +68,11 @@
     color: $beer-orange;
 }
 
+.beer-desc-read:hover {
+    color: $beer-light-orange;
+    cursor: pointer;
+}
+
 .beer-show-line-outer {
     width: 700px;
     background-color: white;

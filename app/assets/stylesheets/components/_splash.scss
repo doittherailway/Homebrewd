@@ -85,22 +85,26 @@
     justify-content: center;
     margin: 0 auto;
     margin-top: 100px;
+    width: 600px;
+}
+
+.splash-phone-container {
+    
 }
 
 .splash-phone-img {
-    width: 570px;
-    height: 570px;
+    max-width: 570px;
+    max-height: 570px;
     margin: 30px 100px 10px 60px;
-    max-width: 100%;
-    max-height: 100%;
-
+    // max-width: 100%;
+    // max-height: 100%;
 }
 
 .splash-outer {
     display: flex;
     justify-content: center;
     // align-content: center;
-    flex-wrap: wrap;
-    overflow: hidden;
+    // flex-wrap: wrap;
+    // overflow: hidden;
     align-self: center;
 }
