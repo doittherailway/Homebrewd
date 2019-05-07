@@ -55,7 +55,7 @@ class BeerShow extends React.Component {
                             </div>
                             <div className="beer-show-edit">
                                 <Link to={`/beers/${this.props.beer.id}/edit`} className="beer-show-edit-link">Propose Edit</Link>
-                                <a className="delete-beer" onClick={this.handleDelete}>Delete Beer</a>
+
                             </div>
                         </div>
                     </div>

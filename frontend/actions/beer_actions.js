@@ -65,9 +65,9 @@ export const updateBeer = (beer, id) => (dispatch) => (
         ))
 );
 
-export const deleteBeer = (beerId) => (dispatch) => (
-    BeerApiUtil.deleteBeer(beerId)
-        .then(beer => dispatch(removeBeer(beer.id)), err => (
-            dispatch(receiveBeerErrors(err.responseJSON))
-        ))
-);
+// export const deleteBeer = (beerId) => (dispatch) => (
+//     BeerApiUtil.deleteBeer(beerId)
+//         .then(beer => dispatch(removeBeer(beer.id)), err => (
+//             dispatch(receiveBeerErrors(err.responseJSON))
+//         ))
+// );

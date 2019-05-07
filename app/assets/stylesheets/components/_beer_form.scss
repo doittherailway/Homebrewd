@@ -36,7 +36,7 @@
    padding-top: 10px;
  }
 
-.beer-form label {
+.beer-form-label {
     font-family: $main-font;
     color: $beer-dtl-grey;
     display: block;
@@ -70,6 +70,7 @@
     background-color: white;
    font-size: 16px;
    padding: 6px 8px;
+    margin-bottom: 10px;
  }
 
  .beer-form-name {
@@ -167,4 +168,52 @@
 
  .error-ul {
    font-family: $main-font;
+ }
+
+ .beer-form-edit-photo-container {
+
+ }
+
+ .beer-form-photo-input {
+    // opacity: 0;
+    cursor: pointer
+ }
+
+ .beer-form-photo-div {
+   
+ }
+
+ .beer-photo-label {
+   border: 1px dashed $cc-grey;
+    border-radius: 4px;
+   cursor: pointer;
+   display: flex;
+   padding: 10px;
+   align-items: center;
+   margin-bottom: 10px;
+ }
+
+ .beer-photo-label input[type="file"] {
+    position:absolute;
+    display: none;
+}
+
+ .beer-photo-add-btn {
+    box-sizing: border-box;
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    border: 2px solid $cc-grey;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 30px;
+    color: $cc-grey;
+ }
+
+ .beer-photo-add-text {
+   margin-left: 5px;
+   display: inline-block;
+   color: $beer-dtl-grey;
+   font-family: $main-font;
+   text-transform: none;
  }

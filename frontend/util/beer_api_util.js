@@ -19,6 +19,7 @@ export const createBeer = (beer) => {
         data: { beer },
     })
 )};
+
 export const updateBeer = (formData, id) => {
     return(
     $.ajax({
@@ -29,9 +30,10 @@ export const updateBeer = (formData, id) => {
         processData: false
     })
 )};
-export const deleteBeer = (beerId) => (
-    $.ajax({
-        method: "delete",
-        url: `api/beers/${beerId}`,
-    })
-);
+
+// export const deleteBeer = (beerId) => (
+//     $.ajax({
+//         method: "delete",
+//         url: `api/beers/${beerId}`,
+//     })
+// );

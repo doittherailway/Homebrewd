@@ -124,7 +124,7 @@ class BeerForm extends React.Component {
         this.breweryOptions();
         if (this.props.formType === 'Edit') {
             this.setState({
-                id: this.props.beer.id
+                id: this.props.beer.id,
             });
         }
     }
@@ -211,7 +211,14 @@ class BeerForm extends React.Component {
         if (this.props.formType === "Edit") {
             return(
                 <div className="beer-form-edit-photo-container">
-                    <input type="file" onChange={this.handleFile}/>
+                    <label className="beer-form-label"> Beer Label </label>
+                    <div className="beer-form-photo-div">
+                    <label className="beer-photo-label">
+                        <input className="beer-form-photo-input" type="file" onChange={this.handleFile}/>
+                        <div className="beer-photo-add-btn">+</div>
+                        <div className="beer-photo-add-text">Choose a file to add (JPEG & PNG files only).</div>
+                    </label>
+                    </div>
                 </div>
             )
         }
@@ -236,11 +243,11 @@ class BeerForm extends React.Component {
                         </div>
                         {this.renderErrors()}
                             <form className="beer-form" onSubmit={this.handleSubmit}>
-                                <label> Beer Name
+                                <label className="beer-form-label"> Beer Name
                                     <input className="beer-form-name"type="text" value={this.state.name} onChange={(e) => (this.handleChange("name", e))} ></input>
                                 </label>
                                 <div className="form-brewery-div">
-                                    <label> Brewery Name
+                                    <label className="beer-form-label"> Brewery Name
                                         <div className="form-brewery-select-div">
                                             <select className="brewery" id="brewerySelect" onChange={(e) => (this.handleChange("brewery", e))}>
                                             </select>
@@ -249,17 +256,17 @@ class BeerForm extends React.Component {
                                 </div>
                                 <div className="form-abv-style-div">
                                     <div className="beer-form-abv-div">
-                                        <label> Abv
+                                        <label className="beer-form-label"> Abv
                                             <input type="text" className="beer-form-abv" value={this.state.abv} onChange={(e) => (this.handleChange("abv", e))}></input>
                                         </label>
                                     </div>
-                                    <label>Style
+                                    <label className="beer-form-label">Style
                                         <div className="select-div">
                                             <select id="beerStyleSelect" value={this.state.beer_thype} onChange={(e) => (this.handleChange("beer_type", e))}></select>
                                         </div>
                                     </label>
                                 </div>
-                                <label> Description
+                                <label className="beer-form-label"> Description
                                     <textarea type="text" className="beer-form-description" maxLength="750" value={this.state.description} onChange={(e) => (this.handleChange("description", e))}></textarea>
                                 </label>
                                 {this.addImage()}

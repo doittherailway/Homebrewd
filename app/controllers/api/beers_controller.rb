@@ -54,11 +54,11 @@ class Api::BeersController < ApplicationController
         end
     end
 
-    def destroy
-        @beer = Beer.find(params[:id])
-        @beer.destroy
-        render "api/beers/show"
-    end
+    # def destroy
+    #     @beer = Beer.find(params[:id])
+    #     @beer.destroy
+    #     render "api/beers/show"
+    # end  
 
     private
     def beer_params
