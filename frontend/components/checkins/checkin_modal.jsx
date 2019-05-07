@@ -47,8 +47,11 @@ class CheckinModal extends React.Component {
             <div>
                 <form onSubmit={this.handleSubmit}>
                     <textarea className="checkin-textarea" value={this.state.description} onChange={(e) => (this.handleChange("description", e))} placeholder="What did you think?"></textarea>
-                    <input type="range" min="0" max="5" value={this.state.rating} onChange={(e) => (this.handleChange("rating", e))}></input>
-                    <input type="text" className="checkin-location" value={this.state.location} onChange={(e) => (this.handleChange("location", e))}></input>
+                    <div className="slider-container">
+                        <input className="checkin-slider" type="range" min="0" max="5" value={this.state.rating} onChange={(e) => (this.handleChange("rating", e))}></input>
+                    </div>
+                    <div className="checkin-rating-box">{this.state.rating}</div>
+                    <input type="text" className="checkin-location" placeholder="Add your location" value={this.state.location} onChange={(e) => (this.handleChange("location", e))}></input>
                     <button type="submit">Confirm</button>
                  </form>   
             </div>
@@ -58,11 +61,14 @@ class CheckinModal extends React.Component {
 
     render(){
         return(
-            <div className={this.showhideClassname()}>
+            <div className ="checkin-button-container" >
                 <section className="checkin-modal-section">
-                    <button onClick={this.props.handleClose}>
-                        close
-                    </button>
+                <   div className="checkin-modal-top-bar">
+                        <p className="checkin-modal-top-text">Check-In</p>
+                        <button className="checkin-modal-close-btn" onClick={this.props.handleClose}>
+                            x
+                        </button>
+                    </div>
                     <div>
                         {this.checkinForm()}
                     </div>

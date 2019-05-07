@@ -16,8 +16,10 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
     return({
         fetchBeer: (beerId) => (dispatch(fetchBeer(beerId))),
-        deleteBeer: (beerId) => (dispatch(deleteBeer(beerId)))
+
     });
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(BeerShow);
+
+//         deleteBeer: (beerId) => (dispatch(deleteBeer(beerId)))

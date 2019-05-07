@@ -10,7 +10,8 @@
     width: 50px;
     height: 50px;
     text-align: center;
-    margin: 5px;
+    margin: 10px;
+    margin-left: 30px;
 }
 
 .fa-check{
@@ -30,7 +31,9 @@
 .checkin-modal-section {
   position:fixed;
   background: white;
-  width: 80%;
+  z-index: 3;
+  // width: 80%;
+  width: 500px;
   height: auto;
   top:50%;
   left:50%;
@@ -45,21 +48,131 @@
   display: none;
 }
 
+.modal-bg-comp {
+  z-index: 1;
+}
+
+.checkin-modal-top-bar {
+  background-color: $modal-black;
+  color: white;
+  font-family: $main-font;
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
+}
+
+.checkin-modal-close-btn {
+
+}
+
+.checkin-modal-top-text {
+
+}
+
 .checkin-textarea {
+    font-family: $main-font;
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 3px;
     width: 80%;
     height: 80px;
     box-sizing: border-box;
-    padding: 4px;
+    padding: 5px;
+    margin: 10px;
     //margin right?
 }
 
+.slider-container {
+  display: inline-block;
+  width: 45%;
+  padding: 5px;
+  margin: 5px;
+}
+
+.checkin-slider {
+  
+  // padding: 5px;
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  background: transparent; //otherwise white in chrome
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  cursor: pointer;
+  margin-top: -11px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%; 
+  background: $slider-yellow;
+  // margin-top: 1px;
+  margin-left: -3px;
+  margin-right: -3px;
+}
+
+input[type=range]:focus {
+  outline: none; 
+}
+
+input[type=range]::-ms-track {
+  // width: 100%;
+  // cursor: pointer;
+
+  // //Hide slider
+  // background: transparent; 
+  // border-color: transparent;
+  // color: transparent;
+}
+
+input[type=range]::-moz-range-thumb {
+  cursor: pointer;
+  margin-top: -14px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%; 
+  background: $slider-yellow;
+} 
+
+input[type=range]::-ms-thumb {
+  margin: 0;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  // width: 100%;
+  height: 7px;
+  width: 200px;
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: $beer-grey;
+}
+
+// input[type=range]::-moz-range-track {
+//   width: 100%;
+//   height: 10px;
+// }
+
+
+.checkin-rating-box {
+  display: inline-block;
+  height: 25px;
+  width: 40px;
+  padding: 5px;
+  color: white;
+  font-family: $main-font;
+  // background-color: $beer-dtl-grey;
+  background-color: rgba(0,0,0,0.4);
+}
+
 .checkin-location {
-    width: 65%;
+    width: 60%;
     background-color: $light-grey;
-    padding: 8px;
+    padding: 5px;
+    padding-left: 8px;
+    padding-right: 8px;
+    margin: 10px;
     box-sizing: border-box;
     color: $beer-orange;
     font-size: 18px;
