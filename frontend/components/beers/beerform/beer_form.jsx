@@ -63,8 +63,7 @@ class BeerForm extends React.Component {
         this.state = {
             name: this.props.beer.name,
             brewery_id: this.props.beer.brewery_id,
-            // brewery: this.props.beer.brewery,
-            beer_type: this.props.beer.beerType, // beer_type
+            beer_type: this.props.beer.beerType, 
             description: this.props.beer.description,
             abv: this.props.beer.abv,
             photoFile: null
@@ -93,13 +92,18 @@ class BeerForm extends React.Component {
             formData.append('beer[photo]', this.state.photoFile);
             formData.append('beer[id]', this.state.id);
 
-            this.props.beerFormAction(formData, this.state.id);
+            this.props.beerFormAction(formData, this.state.id)
+                .then((action) => {
+                    if (action.type === "RECEIVE_BEER") {
+                        return (this.props.history.push(`/beers/${action.beer.id}`))
+                    }
+                });
 
         } else {
             this.props.beerFormAction(this.state)
             .then((action) => {
                 if (action.type === "RECEIVE_BEER") {
-                    return(this.props.history.push(`/beers/${action.beer.id}`))
+                    return(this.props.history.push(`/beers/${action.beer.id}`));
                 }
             });
         }
