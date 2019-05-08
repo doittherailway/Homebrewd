@@ -137,6 +137,9 @@
   width: 45%;
   padding: 5px;
   margin: 5px;
+  vertical-align: top;
+  margin-top: 17px;
+  margin-left: 8px;
 }
 
 .checkin-slider {
@@ -207,28 +210,32 @@ input[type=range]::-webkit-slider-runnable-track {
 
 .checkin-rating-box {
   display: inline-block;
+  position: relative;
   height: 30px;
-  width: 40px;
+  width: 45px;
   padding: 2px;
+  // padding-bottom: 3px;
   color: white;
   font-family: $main-font;
   // background-color: $beer-dtl-grey;
-  background-color: rgba(0,0,0,0.4);
+  background-color: $time-grey;
   border-radius: 4px;
   text-align: center;
+  margin-left: 10px;
+  top: 10px;
 }
 
 .checkin-rating-box::before {
-    border: 1px solid $border-light-grey;
-    border-right-color: white;
-    border-bottom-color: #eee;
-    background-color: white;
-    left: 15px;
-    top: -9px;
+    // border: 1px solid $border-light-grey;
+    // border-right-color: white;
+    // border-bottom-color: #eee;
+    background-color: $time-grey;
+    left: -6px;
+    top: 11px;
     content: "";
     position: absolute;
-    width: 15px;
-    height: 14px;
+    width: 11px;
+    height: 11px;
     transform: rotate(45deg);
     z-index: 2;
 }
