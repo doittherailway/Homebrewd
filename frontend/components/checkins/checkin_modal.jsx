@@ -17,6 +17,7 @@ class CheckinModal extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.checkinForm = this.checkinForm.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.renderErrors = this.renderErrors.bind(this);
     }
 
     showhideClassname() {
@@ -42,6 +43,22 @@ class CheckinModal extends React.Component {
         //this.props.handleClose on success
     }
 
+    renderErrors() {
+        if (this.props.errors.checkins.length > 0) {
+            return (
+                <div className="error-container-s">
+                    <ul className="error-ul">
+                        {this.props.errors.checkins.map((err, i) => (
+                            <li key={`error-${i}`}>{err}</li>
+                        ))}
+                    </ul>
+                </div>
+            )
+        } else {
+            return (null);
+        }
+    }
+
     checkinForm() {
         return(
             <div>
@@ -50,9 +67,12 @@ class CheckinModal extends React.Component {
                     <div className="slider-container">
                         <input className="checkin-slider" type="range" min="0" max="5" value={this.state.rating} onChange={(e) => (this.handleChange("rating", e))}></input>
                     </div>
-                    <div className="checkin-rating-box">{this.state.rating}</div>
+                    <div className="checkin-rating-box">
+                        <p>{this.state.rating}</p>
+                        <p className="checkin-rating-form-text">STARS</p>
+                    </div>
                     <input type="text" className="checkin-location" placeholder="Add your location" value={this.state.location} onChange={(e) => (this.handleChange("location", e))}></input>
-                    <button type="submit">Confirm</button>
+                    <button className="checkin-form-submit" type="submit">Confirm</button>
                  </form>   
             </div>
         )
@@ -69,6 +89,9 @@ class CheckinModal extends React.Component {
                             x
                         </button>
                     </div>
+                    <div className="checkin-form-errors">
+                        {this.renderErrors()}
+                    </div>
                     <div>
                         {this.checkinForm()}
                     </div>
@@ -83,8 +106,12 @@ class CheckinModal extends React.Component {
 
 import { createCheckin } from '../../actions/checkin_actions';
 
+const mapStateToProps = (state) => ({
+    errors: state.errors
+})
+
 const mapDispatchToProps = (dispatch) => ({
     createCheckin: (checkin) => (dispatch(createCheckin(checkin))),
 });
 
-export default connect(null, mapDispatchToProps)(CheckinModal);
+export default connect(mapStateToProps, mapDispatchToProps)(CheckinModal);

@@ -69,6 +69,12 @@
 
 }
 
+.checkin-form-errors {
+  display: flex;
+  justify-content: center;
+  // margin-left: 20px;
+}
+
 .checkin-textarea {
     font-family: $main-font;
     display: inline-block;
@@ -157,13 +163,17 @@ input[type=range]::-webkit-slider-runnable-track {
 
 .checkin-rating-box {
   display: inline-block;
-  height: 25px;
+  height: 30px;
   width: 40px;
-  padding: 5px;
+  padding: 2px;
   color: white;
   font-family: $main-font;
   // background-color: $beer-dtl-grey;
   background-color: rgba(0,0,0,0.4);
+}
+
+.checkin-rating-form-text {
+  font-size: 12px;
 }
 
 .checkin-location {
@@ -176,4 +186,18 @@ input[type=range]::-webkit-slider-runnable-track {
     box-sizing: border-box;
     color: $beer-orange;
     font-size: 18px;
+    margin-right: 45px;
+}
+
+.checkin-form-submit {
+  background-color: $beer-yellow;
+  display: inline-block;
+  box-sizing: border-box;
+  cursor: pointer;
+  color: white;
+  font-family: $main-font;
+  border-radius: 4px;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 8px 32px;
 }
