@@ -14,6 +14,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => ({
     fetchRelevantCheckins: () => (dispatch(fetchCheckins())),
+
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CheckinIndex);

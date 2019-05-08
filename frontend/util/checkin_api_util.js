@@ -27,3 +27,10 @@ export const createCheckin = (formData) => {
         })
     );
 };
+
+export const deleteCheckin = (checkinId) => (
+    $.ajax({
+        method: "delete",
+        url: `api/checkins/${checkinId}`,
+    })
+);

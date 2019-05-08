@@ -1,10 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { deleteCheckin } from '../../actions/checkin_actions';
 
-const CheckinExtraDetails = ({currentUserId, checkinId}) => {
-    if (currentUserId === checkinId) {
+export const CheckinExtraDetails = ({currentUserId, checkinUserId, checkinId, deleteCheckin}) => {
+    if (currentUserId === checkinUserId) {
+
+        const handleDelete = () => {
+            let result = confirm("Are you sure you wish to delete this beer?");
+            if (result) {
+                deleteCheckin(checkinId);
+                // this.props.history.push(`/beers`); //window.scroll on .then
+            }
+        };
+
         return (
-            <p className="checkin-extra-detail-link" >Delete Check-In</p>
+            <p className="checkin-extra-detail-link" onClick={handleDelete}>Delete Check-In</p>
         );
     } else {
         return(null);
@@ -12,4 +23,10 @@ const CheckinExtraDetails = ({currentUserId, checkinId}) => {
     
 };
 
-export default CheckinExtraDetails;
+// export default CheckinExtraDetails;
+
+const mapDispatchToProps = (dispatch, ownProps) => ({
+    deleteCheckin: (checkinId) => (dispatch(deleteCheckin(checkinId)))
+});
+
+export default connect(null, mapDispatchToProps)(CheckinExtraDetails);

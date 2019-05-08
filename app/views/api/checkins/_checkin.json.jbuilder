@@ -12,8 +12,6 @@
         json.checkinPhotoUrl ""
     end
 
- 
-
 # json.id checkin.id
 # json.userId checkin.user_id
 # json.beerId checkin.beer_id

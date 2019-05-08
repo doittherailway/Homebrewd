@@ -1,4 +1,4 @@
-import { RECEIVE_ALL_CHECKINS, RECEIVE_CHECKIN } from '../actions/checkin_actions';
+import { RECEIVE_ALL_CHECKINS, RECEIVE_CHECKIN, REMOVE_CHECKIN } from '../actions/checkin_actions';
 // import { RECEIVE_BEER } from '../actions/beer_actions';
 
 const checkinsReducer = (state = {}, action) => {
@@ -13,6 +13,9 @@ const checkinsReducer = (state = {}, action) => {
         // case RECEIVE_BEER:
         // debugger
         //     return action.checkins;
+        case REMOVE_CHECKIN:
+            delete newState[action.checkinId];
+            return newState;
         default:
             return state;
     }

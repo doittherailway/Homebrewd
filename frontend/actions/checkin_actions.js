@@ -3,6 +3,7 @@ import * as CheckinApiUtil from '../util/checkin_api_util';
 export const RECEIVE_ALL_CHECKINS = 'RECEIVE_ALL_CHECKINS';
 export const RECEIVE_CHECKIN = 'RECEIVE_CHECKIN';
 export const RECEIVE_CHECKIN_ERRORS = 'RECEIVE_CHECKIN_ERRORS';
+export const REMOVE_CHECKIN = 'REMOVE_CHECKIN';
 
 const receiveCheckins = (payload) => (
     {
@@ -21,6 +22,13 @@ const receiveCheckin = (payload) => (
         user: payload.user,
         beer: payload.beer,
         brewery: payload.brewery
+    }
+);
+
+const removeCheckin = (checkinId) => (
+    {
+        type: REMOVE_CHECKIN,
+        checkinId
     }
 );
 
@@ -48,6 +56,13 @@ export const fetchResourceCheckins = (resourceType, resourceId) => (dispatch) =>
 export const createCheckin = (checkin) => (dispatch) => (
     CheckinApiUtil.createCheckin(checkin)
         .then(checkin => dispatch(receiveCheckin(checkin)), err => (
+            dispatch(receiveCheckinErrors(err.responseJSON))
+        ))
+);
+
+export const deleteCheckin = (checkinId) => (dispatch) => (
+    CheckinApiUtil.deleteCheckin(checkinId)
+        .then(() => dispatch(removeCheckin(checkinId)), err => (
             dispatch(receiveCheckinErrors(err.responseJSON))
         ))
 );

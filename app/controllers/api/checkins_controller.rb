@@ -33,7 +33,17 @@ class Api::CheckinsController < ApplicationController
         render "api/checkins/show"
     end
 
-
+    def destroy
+        @checkin = Checkin.find(params[:id])
+        if @checkin.user_id = current_user.id
+            @checkin.destroy
+            #render what here?
+            render "api/checkins/show"
+        else
+            # render errors
+        end
+    end
+    
     private
     def checkin_params
         params.require(:checkin).permit(
