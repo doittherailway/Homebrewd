@@ -29,7 +29,7 @@ class BeerShow extends React.Component {
  
 
     render() {
-        if (this.props.beer !== undefined && this.props.beer.name !== undefined) {
+        if (this.props.beer !== undefined && this.props.beer.name !== undefined && this.props.brewery !== undefined) {
             return(
                 <div className="beer-bg">
                     <div className="beer-show-outer">
