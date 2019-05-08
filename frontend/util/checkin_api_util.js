@@ -16,12 +16,14 @@ export const fetchResourceCheckins = (resourceType, resourceId) => (
     })
 );
 
-export const createCheckin = (checkin) => {
+export const createCheckin = (formData) => {
     return (
         $.ajax({
             method: "post",
-            url: "api/checkins",
-            data: { checkin },
+            url: "/api/checkins",
+            data: formData,
+            contentType: false,
+            processData: false
         })
     );
 };

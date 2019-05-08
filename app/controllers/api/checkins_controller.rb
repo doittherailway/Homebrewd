@@ -17,7 +17,10 @@ class Api::CheckinsController < ApplicationController
 
     def create
         @checkin = Checkin.new(checkin_params)
-        # @beer = Beer.find(@checkin.beer_id)
+
+            if checkin_params[:photo] != "null"
+                @checkin.photo = checkin_params[:photo]
+            end
         if @checkin.save
             render "api/checkins/show" #maybe some different render, was /beers/id
         else
@@ -38,7 +41,9 @@ class Api::CheckinsController < ApplicationController
             :beer_id, 
             :description, 
             :rating, 
-            :location)
+            :location,
+            :photo
+        )
     end
 
 end

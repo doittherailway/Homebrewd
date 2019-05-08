@@ -18,6 +18,7 @@ class CheckinModal extends React.Component {
         this.checkinForm = this.checkinForm.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.renderErrors = this.renderErrors.bind(this);
+        this.handleFile = this.handleFile.bind(this);
     }
 
     showhideClassname() {
@@ -26,6 +27,13 @@ class CheckinModal extends React.Component {
         } else {
             return "modal checkin-modal-display-none";
         }
+    }
+
+    handleFile(e) {
+
+        this.setState({
+            photoFile: e.currentTarget.files[0]
+        });
     }
 
 
@@ -38,7 +46,21 @@ class CheckinModal extends React.Component {
 
     handleSubmit(e){
         e.preventDefault();
-        this.props.createCheckin(this.state);
+        const formData = new FormData();
+        formData.append('checkin[description]', this.state.description);
+        formData.append('checkin[user_id]', this.state.user_id);
+        formData.append('checkin[beer_id]', this.state.beer_id);
+        formData.append('checkin[rating]', this.state.rating);
+        formData.append('checkin[photo]', this.state.photoFile);
+        formData.append('checkin[location]', this.state.location);
+
+        this.props.createCheckin(formData)
+            .then((action) => {
+                if (action.type === "RECEIVE_CHECKIN") {
+                    // Show success modal
+                }
+            });
+        
 
         //this.props.handleClose on success
     }
@@ -63,7 +85,17 @@ class CheckinModal extends React.Component {
         return(
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    <textarea className="checkin-textarea" value={this.state.description} onChange={(e) => (this.handleChange("description", e))} placeholder="What did you think?"></textarea>
+                    <div className="checkin-top-row">
+                        <textarea className="checkin-textarea" value={this.state.description} onChange={(e) => (this.handleChange("description", e))} placeholder="What did you think?"></textarea>
+                        <div className="checkin-photo-upload-container">
+                            <label className="checkin-photo-label">
+                                <input className="checkin-form-photo-input" type="file" onChange={this.handleFile} />
+                                <div className="checkin-photo-add-btn"> 
+                                    <i className="fas fa-camera"></i>
+                                </div> 
+                            </label>
+                        </div>
+                    </div>
                     <div className="slider-container">
                         <input className="checkin-slider" type="range" min="0" max="5" value={this.state.rating} onChange={(e) => (this.handleChange("rating", e))}></input>
                     </div>

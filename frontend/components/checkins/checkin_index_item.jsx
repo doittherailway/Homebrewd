@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 import BeerIcon from '../beers/beer_icon';
 import CheckinRating from './checkin_rating';
 import CheckinExtraDetails from './checkin_extra_details';
+import CheckinPhoto from './checkin_photo';
+import { timeDifference } from '../../reducers/selectors';
 
 const CheckinIndexItem = (props) => {
-
     return(
         <li className="checkin-li">
             <div className="checkin-index-item-div">
@@ -18,11 +19,9 @@ const CheckinIndexItem = (props) => {
                         <p>{props.checkin.description}</p>
                         <div className="checkin-beer-rating-box"><CheckinRating rating={props.checkin.rating} /></div>
                     </div>
-                    <div className="checkin-photo-box">
-
-                    </div>
+                        <CheckinPhoto checkinPhotoUrl={props.checkin.checkinPhotoUrl} />
                     <div className="checkin-bottom-box">
-                        <p className="checkin-bottom-date">{props.checkin.createdAt}</p>
+                        <p className="checkin-bottom-date">{timeDifference(props.checkin.createdAt)}</p>
                         <CheckinExtraDetails checkinId={props.checkin.userId} currentUserId={props.currentUserId} />
                     </div>
                 </div>

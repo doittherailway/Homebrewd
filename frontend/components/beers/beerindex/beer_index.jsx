@@ -9,7 +9,7 @@ class BeerIndex extends React.Component {
     }
 
     render() {
-        if (Object.keys(this.props.beers).length === 0 ) {
+        if (Object.keys(this.props.beers).length === 0) {
             return(
                 null
             );

@@ -5,7 +5,12 @@
     json.description checkin.description
     json.rating checkin.rating
     json.location checkin.location
-    json.created_at checkin.created_at.strftime("%m/%d/%Y")
+    json.created_at checkin.created_at.to_f * 1000
+    if checkin.photo.attached?
+        json.checkinPhotoUrl url_for(checkin.photo)
+    else
+        json.checkinPhotoUrl ""
+    end
 
  
 

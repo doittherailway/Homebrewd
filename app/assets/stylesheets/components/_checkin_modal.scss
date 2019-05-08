@@ -75,6 +75,11 @@
   // margin-left: 20px;
 }
 
+.checkin-top-row {
+  display: flex;
+  padding-top: 10px;
+}
+
 .checkin-textarea {
     font-family: $main-font;
     display: inline-block;
@@ -86,6 +91,43 @@
     padding: 5px;
     margin: 10px;
     //margin right?
+}
+
+.checkin-photo-upload-container {
+  display: inline-block;
+}
+
+.checkin-photo-label {
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.checkin-form-photo-input {
+  cursor: pointer;
+}
+
+.checkin-photo-label input[type="file"] {
+    position:absolute;
+    display: none;
+}
+
+.checkin-photo-add-btn {
+  color: white;
+  background-color: $beer-yellow;
+  height: 78px;
+  width: 78px;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 46px;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.fa-camera {
+  margin-top: 13px;
 }
 
 .slider-container {
@@ -170,6 +212,8 @@ input[type=range]::-webkit-slider-runnable-track {
   font-family: $main-font;
   // background-color: $beer-dtl-grey;
   background-color: rgba(0,0,0,0.4);
+  border-radius: 4px;
+  text-align: center;
 }
 
 .checkin-rating-form-text {

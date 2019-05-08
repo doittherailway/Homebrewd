@@ -128,12 +128,17 @@
 }
 
 .checkin-photo-box {
-    border: 1px solid $light-grey;
-    padding: 8px;
+    // border: 1px solid $light-grey;
+    // padding: 8px;
     margin-bottom: 10px;
     border-radius: 4px;
     width: 90%;
     font-size: 19px;
+}
+
+
+.checkin-img-photo {
+
 }
 
 .checkin-bottom-box {
@@ -144,6 +149,7 @@
 
 .checkin-bottom-date {
     display: inline-block;
+    color: $time-grey;
 }
 
 .checkin-extra-detail-link {

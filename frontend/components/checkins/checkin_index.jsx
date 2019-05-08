@@ -1,5 +1,6 @@
 import React from 'react';
 import CheckinIndexItem from './checkin_index_item';
+import { sortByLatest } from '../../reducers/selectors';
 
 class CheckinIndex extends React.Component {
     constructor(props) {
@@ -17,7 +18,7 @@ class CheckinIndex extends React.Component {
         if (Object.keys(this.props.checkins).length === 0) { //I think there is checkins sitting in the state which is causing a render before a fetch
             return (null);
         } else {
-
+            let sortedCheckins = sortByLatest(this.props.checkins);
             //sort checkins here
 
             return(
@@ -27,7 +28,7 @@ class CheckinIndex extends React.Component {
                             <p className="checkin-title-p">Recent Activity</p>
                         </div>
                         <ul className="checkin-index-ul">
-                            {this.props.checkins.map((checkin, i) => {
+                            {sortedCheckins.map((checkin, i) => {
                                 return (<CheckinIndexItem checkin={checkin} beer={this.props.beers[checkin.beerId]} user={this.props.users[checkin.userId]} currentUserId={this.props.currentUserId} key={i} />)
                             })}
                         </ul>
