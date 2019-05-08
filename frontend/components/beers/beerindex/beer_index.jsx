@@ -12,7 +12,7 @@ class BeerIndex extends React.Component {
         if (Object.keys(this.props.beers).length === 0 ) {
             return(
                 null
-            )
+            );
         } else {
             return(
                 <div className="beer-bg">

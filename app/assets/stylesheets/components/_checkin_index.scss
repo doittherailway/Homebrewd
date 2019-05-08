@@ -123,6 +123,10 @@
     // pointer-events: none;
 }
 
+.checkin-beer-rating-box {
+    color: $beer-dtl-grey;
+}
+
 .checkin-photo-box {
     border: 1px solid $light-grey;
     padding: 8px;
@@ -130,4 +134,19 @@
     border-radius: 4px;
     width: 90%;
     font-size: 19px;
+}
+
+.checkin-bottom-box {
+    display: block;
+    color: $beer-orange;
+    font-size: 12px;
+}
+
+.checkin-bottom-date {
+    display: inline-block;
+}
+
+.checkin-extra-detail-link {
+    display: inline-block;
+    margin-left: 100px;
 }

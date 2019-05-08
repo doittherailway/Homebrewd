@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import BeerIcon from '../beers/beer_icon';
+import CheckinRating from './checkin_rating';
+import CheckinExtraDetails from './checkin_extra_details';
 
 const CheckinIndexItem = (props) => {
-
 
     return(
         <li className="checkin-li">
@@ -15,10 +16,14 @@ const CheckinIndexItem = (props) => {
                     <p className="checkin-item-p"><Link className="checkin-item-link" to="">{props.user.username}</Link> is drinking a <Link className="checkin-item-link" to={`/beers/${props.beer.id}`}>{props.beer.name}</Link> by [brewery]</p>
                     <div className="checkin-desc-box">
                         <p>{props.checkin.description}</p>
-                        <p>{props.checkin.rating}/5</p>
+                        <div className="checkin-beer-rating-box"><CheckinRating rating={props.checkin.rating} /></div>
                     </div>
                     <div className="checkin-photo-box">
 
+                    </div>
+                    <div className="checkin-bottom-box">
+                        <p className="checkin-bottom-date">{props.checkin.createdAt}</p>
+                        <CheckinExtraDetails checkinId={props.checkin.userId} currentUserId={props.currentUserId} />
                     </div>
                 </div>
                 <div className="checkin-beer-icon">
@@ -30,3 +35,5 @@ const CheckinIndexItem = (props) => {
 };
 
 export default CheckinIndexItem;
+
+// <div id={`beerRatingStars-${props.checkin.id}`}></div>

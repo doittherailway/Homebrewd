@@ -9,6 +9,7 @@ class CheckinIndex extends React.Component {
     //checkin type: allCheckins, beerCheckins, userCheckins
     componentDidMount(){
         this.props.fetchRelevantCheckins();
+        // this.addBeerRatingStars();
         
     }
 
@@ -17,7 +18,7 @@ class CheckinIndex extends React.Component {
             return (null);
         } else {
 
-            
+            //sort checkins here
 
             return(
                 <div className="checkin-index-outer">
@@ -27,7 +28,7 @@ class CheckinIndex extends React.Component {
                         </div>
                         <ul className="checkin-index-ul">
                             {this.props.checkins.map((checkin, i) => {
-                                return (<CheckinIndexItem checkin={checkin} beer={this.props.beers[checkin.beerId]} user={this.props.users[checkin.userId]} key={i} />)
+                                return (<CheckinIndexItem checkin={checkin} beer={this.props.beers[checkin.beerId]} user={this.props.users[checkin.userId]} currentUserId={this.props.currentUserId} key={i} />)
                             })}
                         </ul>
                     </div>
@@ -36,6 +37,23 @@ class CheckinIndex extends React.Component {
         }
     }
     
+    // addBeerRatingStars(){
+    //     Object.keys(this.props.checkins).forEach((checkin) => {
+    //         let stars = document.getElementById(`beerRatingStars-${checkin.id}`);
+    //         let fragment = document.createDocumentFragment();
+    //         let rating = checkin.rating;
+    //         for (let i = 0; i < 5; i++) {
+    //             let star = document.createElement('i');
+    //             if (i < rating) {
+    //                 star.className = "fas fa-certificate cert-ylw";
+    //             } else {
+    //                 star.className = "fas fa-certificate";
+    //             }
+    //             fragment.appendChild(star);
+    //         }
+    //         stars.appendChild(fragment);
+    //     });
+    // }   
 
 }
 
