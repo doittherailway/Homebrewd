@@ -90,7 +90,7 @@
 
 .checkin-item-p {
     font-size: 18px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .checkin-item-link {
@@ -114,35 +114,22 @@
     width: 90%;
     font-size: 19px;
     position: relative;
+    z-index: 1;
 }
 
 .checkin-desc-box::before {
-    // border-color: rgba(248,248,248,0);
-    // background-color: blue;
-    // border-bottom-color: $light-grey;
-    // border-width: 14px;
-    // // margin-left: -14px;
-    // z-index: 3;
-    // // bottom: 100%;    
-    // // left: 24px;
-    // // border: solid transparent;
-    // content: "";
-    // // height: 0;
-    // // width: 0;
-    // position: absolute;
-    // // pointer-events: none;
-
-    border-color: rgba(248,248,248,0);
+    border: 1px solid $border-light-grey;
+    border-right-color: white;
     border-bottom-color: #eee;
-    border-width: 14px;
-    left: -14px;
-    content: " ";
+    background-color: white;
+    left: 15px;
+    top: -9px;
+    content: "";
     position: absolute;
-    display: inline-block;
-    vertical-align: middle;
-    width: 0px;
-    height: 0px;
-
+    width: 15px;
+    height: 14px;
+    transform: rotate(45deg);
+    z-index: 2;
 }
 
 .checkin-beer-rating-box {

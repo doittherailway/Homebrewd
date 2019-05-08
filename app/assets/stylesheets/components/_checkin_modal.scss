@@ -32,7 +32,7 @@
 .checkin-modal-section {
   position:fixed;
   background: white;
-  z-index: 3;
+  z-index: 50;
   // width: 80%;
   width: 500px;
   height: auto;
@@ -43,6 +43,7 @@
 
 .checkin-modal-display-on {
   display: block;
+  z-index: 50;
 }
 
 .checkin-modal-display-none {
@@ -50,7 +51,7 @@
 }
 
 .modal-bg-comp {
-  z-index: 1;
+  z-index: 50;
 }
 
 .checkin-modal-top-bar {
@@ -217,6 +218,21 @@ input[type=range]::-webkit-slider-runnable-track {
   text-align: center;
 }
 
+.checkin-rating-box::before {
+    border: 1px solid $border-light-grey;
+    border-right-color: white;
+    border-bottom-color: #eee;
+    background-color: white;
+    left: 15px;
+    top: -9px;
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 14px;
+    transform: rotate(45deg);
+    z-index: 2;
+}
+
 .checkin-rating-form-text {
   font-size: 12px;
 }
@@ -238,6 +254,7 @@ input[type=range]::-webkit-slider-runnable-track {
 .checkin-location::placeholder {
   color: $beer-orange;
 }
+
 
 .checkin-form-submit {
   background-color: $beer-yellow;
