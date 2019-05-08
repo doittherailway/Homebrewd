@@ -90,14 +90,20 @@
 
 .checkin-item-p {
     font-size: 18px;
+    margin-bottom: 10px;
 }
 
 .checkin-item-link {
     color: $beer-orange;
 }
 
+.location-name-checkin {
+    color: $beer-orange
+}
+
 .checkin-item-link:hover {
     color: $beer-light-orange;
+    cursor: pointer;
 }
 
 .checkin-desc-box {
@@ -107,22 +113,36 @@
     border-radius: 4px;
     width: 90%;
     font-size: 19px;
+    position: relative;
 }
 
-.checkin-desc-box:before {
-    // border-color: rgba(248,248,248.0);
+.checkin-desc-box::before {
+    // border-color: rgba(248,248,248,0);
+    // background-color: blue;
     // border-bottom-color: $light-grey;
     // border-width: 14px;
-    // margin-left: -14px;
-    
-    // bottom: 100%;
-    // left: 24px;
-    // border: solid transparent;
-    // content: " ";
-    // height: 0;
-    // width: 0;
+    // // margin-left: -14px;
+    // z-index: 3;
+    // // bottom: 100%;    
+    // // left: 24px;
+    // // border: solid transparent;
+    // content: "";
+    // // height: 0;
+    // // width: 0;
     // position: absolute;
-    // pointer-events: none;
+    // // pointer-events: none;
+
+    border-color: rgba(248,248,248,0);
+    border-bottom-color: #eee;
+    border-width: 14px;
+    left: -14px;
+    content: " ";
+    position: absolute;
+    display: inline-block;
+    vertical-align: middle;
+    width: 0px;
+    height: 0px;
+
 }
 
 .checkin-beer-rating-box {
