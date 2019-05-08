@@ -145,11 +145,15 @@
     border-radius: 4px;
     width: 90%;
     font-size: 19px;
+    max-height: 500px;
+    object-fit: cover;
+    // overflow: hidden;
 }
 
 
 .checkin-img-photo {
-
+    max-height: 500px;
+    object-fit: cover;
 }
 
 .checkin-bottom-box {

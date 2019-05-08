@@ -7,7 +7,7 @@ export const CheckinExtraDetails = ({currentUserId, checkinUserId, checkinId, de
     if (currentUserId === checkinUserId) {
 
         const handleDelete = () => {
-            let result = confirm("Are you sure you wish to delete this beer?");
+            let result = confirm("Are you sure you wish to delete this checkin?");
             if (result) {
                 deleteCheckin(checkinId);
                 // this.props.history.push(`/beers`); //window.scroll on .then

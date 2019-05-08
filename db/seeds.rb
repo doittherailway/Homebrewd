@@ -9,9 +9,9 @@ require 'open-uri'
 
 demouser = {username: 'BeerDrinker', password: 'password', email: 'abc@test.com', first_name: 'Peter', last_name: 'Parker'}
 User.create(demouser)
-User.create{{username: 'CatLover', password: 'password', email: 'def@test.com', first_name: 'Mary-Jane', last_name: 'Watson'}}
-User.create{{username: 'HopHead', password: 'password', email: 'ghi@test.com', first_name: 'Miles', last_name: 'Morales'}}
-User.create{{username: 'GreenGoblin', password: 'password', email: 'def@test.com', first_name: 'Harry', last_name: 'Osborn'}}
+User.create({username: 'CatLover', password: 'password', email: 'def@test.com', first_name: 'Mary-Jane', last_name: 'Watson'})
+User.create({username: 'HopHead', password: 'password', email: 'ghi@test.com', first_name: 'Miles', last_name: 'Morales'})
+User.create({username: 'GreenGoblin', password: 'password', email: 'jkl@test.com', first_name: 'Harry', last_name: 'Osborn'})
 
 user_1 = User.find_by(username: 'BeerDrinker').id
 user_2 = User.find_by(username: 'CatLover').id
@@ -53,7 +53,7 @@ review_texts = [
     "Not bad, not bad at all.",
     "Absolutely disgusting, wayyyyy too bitter and hoppy",
     "Stunning herbal palate, with overtones of biscuit malt and cilantro. Hearty yet effervescent mouthfeel and extremely long finish.",
-    "Pours a murky strawberry blonde with a thin head. Overtones of orange and citrus."
+    "Pours a murky strawberry blonde with a thin head. Overtones of orange and citrus.",
     "Yuck.",
     "Easy to drink, nothing fancy.",
     "Juicy and hazy",
@@ -71,7 +71,7 @@ checkin_4 = Checkin.create({user_id: user_3, beer_id: beer_3, description: revie
 checkin_5 = Checkin.create({user_id: user_3, beer_id: beer_5, description: review_texts[7], rating: 4, location: "The Loft"})
 checkin_6 = Checkin.create({user_id: user_4, beer_id: beer_4, description: review_texts[12], rating: 1})
 checkin_7 = Checkin.create({user_id: user_4, beer_id: beer_4, description: review_texts[0], rating: 2, location: "Outside"})
-checkin_8 = Checkin.create({user_id: user_2, beer_id: beer_1, description: review_texts[8], rating: 3, location: "Jeff's House"})
+checkin_8 = Checkin.create({user_id: user_4, beer_id: beer_1, description: review_texts[8], rating: 3, location: "Jeff's House"})
 checkin_9 = Checkin.create({user_id: user_3, beer_id: beer_5, description: review_texts[7], rating: 4, location: "The Loft"})
 checkin_10 = Checkin.create({user_id: user_2, beer_id: beer_2, description: review_texts[1], rating: 1})
 checkin_11 = Checkin.create({user_id: user_4, beer_id: beer_3, description: review_texts[6], rating: 2, location: "the Basement"})
@@ -86,13 +86,14 @@ chph_6 = open('https://s3-us-west-1.amazonaws.com/homebrewd-seeds/5.jpg') #ipa
 chph_7 = open('https://s3-us-west-1.amazonaws.com/homebrewd-seeds/7.jpg') #ipa
 chph_8 = open('https://s3-us-west-1.amazonaws.com/homebrewd-seeds/9.jpg') #ipa
 
-checkin_2.photo.attach(chph_1)
-checkin_3.photo.attach(chph_4)
-checkin_6.photo.attach(chph_5)
-checkin_5.photo.attach(chph_3)
-checkin_4.photo.attach(chph_6)
-checkin_9.photo.attach(chph_2)
-checkin_10.photo.attach(chph_7)
-checkin_11.photo.attach(chph_8)
+checkin_2.photo.attach(io: chph_1, filename: 'checkin_photo.jpg')
+checkin_3.photo.attach(io: chph_4, filename: 'checkin_photo1.jpg')
+checkin_6.photo.attach(io: chph_5, filename: 'checkin_photo2.jpg')
+checkin_5.photo.attach(io: chph_3, filename: 'checkin_photo3.jpg')
+checkin_4.photo.attach(io: chph_6, filename: 'checkin_photo4.jpg')
+checkin_9.photo.attach(io: chph_2, filename: 'checkin_photo5.jpg')
+checkin_10.photo.attach(io: chph_7, filename: 'checkin_photo6.jpg')
+checkin_11.photo.attach(io: chph_8, filename: 'checkin_photo7.jpg')
+checkin_12.photo.attach(io: chph_5, filename: 'checkin_photo2.jpg')
 
 
