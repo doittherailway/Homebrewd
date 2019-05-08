@@ -5,9 +5,18 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'open-uri'
 
 demouser = {username: 'BeerDrinker', password: 'password', email: 'abc@test.com', first_name: 'Peter', last_name: 'Parker'}
 User.create(demouser)
+User.create{{username: 'CatLover', password: 'password', email: 'def@test.com', first_name: 'Mary-Jane', last_name: 'Watson'}}
+User.create{{username: 'HopHead', password: 'password', email: 'ghi@test.com', first_name: 'Miles', last_name: 'Morales'}}
+User.create{{username: 'GreenGoblin', password: 'password', email: 'def@test.com', first_name: 'Harry', last_name: 'Osborn'}}
+
+user_1 = User.find_by(username: 'BeerDrinker').id
+user_2 = User.find_by(username: 'CatLover').id
+user_3 = User.find_by(username: 'HopHead').id
+user_4 = User.find_by(username: 'GreenGoblin').id
 
 Brewery.create({name: "Unknown", description: "Brewery unknown"})
 Brewery.create({name: "Basement Brewing", description: "First came the kit brewing, now we're pumping out beers faster than we can share them", location: "Mission District, San Francisco, CA"})
@@ -33,3 +42,57 @@ Beer.create({name: "Cherrific", brewery_id: brewery_2, description: "Cherrific i
 #ZZ Hop
 #Paul Blart: Malt & Hop
 #Makin' It Grain
+beer_1 = Beer.find_by(name: "Nuttiest Brown Ale").id
+beer_2 = Beer.find_by(name: "Hopposits Attract").id
+beer_3 = Beer.find_by(name: "Makin' It Grain").id
+beer_4 = Beer.find_by(name: "ZZ Hop").id
+beer_5 = Beer.find_by(name: "Cherrific").id
+
+review_texts = [
+    "Beautiful tart aroma, laced with a touch of papaya and rosewater. Absolutely disgusting buttery malt backbone, maybe a little raisin and orange. Heavy mouthfeel and bone dry finish",
+    "Not bad, not bad at all.",
+    "Absolutely disgusting, wayyyyy too bitter and hoppy",
+    "Stunning herbal palate, with overtones of biscuit malt and cilantro. Hearty yet effervescent mouthfeel and extremely long finish.",
+    "Pours a murky strawberry blonde with a thin head. Overtones of orange and citrus."
+    "Yuck.",
+    "Easy to drink, nothing fancy.",
+    "Juicy and hazy",
+    "Nice nutty beer, random bitterness doesn't quite fit the rest of the flavours though.",
+    "Wow, there's a lot going on in this beer and it's all good. Cinnamon complements the sugar, light coffee...yum!",
+    "Simple, clean malt deliciousness.",
+    "Tasty, quite sweet but not overly so",
+    "Juicy, tasty and refreshing. Nicely hopped. Very easy to drink"
+]
+
+checkin_1 = Checkin.create({user_id: user_2, beer_id: beer_1, description: review_texts[9], rating: 3, location: "Berkeley, CA"})
+checkin_2 = Checkin.create({user_id: user_1, beer_id: beer_2, description: review_texts[2], rating: 4, location: "San Francisco, CA"})
+checkin_3 = Checkin.create({user_id: user_1, beer_id: beer_1, description: review_texts[3], rating: 2})
+checkin_4 = Checkin.create({user_id: user_3, beer_id: beer_3, description: review_texts[4], rating: 5, location: "My house"})
+checkin_5 = Checkin.create({user_id: user_3, beer_id: beer_5, description: review_texts[7], rating: 4, location: "The Loft"})
+checkin_6 = Checkin.create({user_id: user_4, beer_id: beer_4, description: review_texts[12], rating: 1})
+checkin_7 = Checkin.create({user_id: user_4, beer_id: beer_4, description: review_texts[0], rating: 2, location: "Outside"})
+checkin_8 = Checkin.create({user_id: user_2, beer_id: beer_1, description: review_texts[8], rating: 3, location: "Jeff's House"})
+checkin_9 = Checkin.create({user_id: user_3, beer_id: beer_5, description: review_texts[7], rating: 4, location: "The Loft"})
+checkin_10 = Checkin.create({user_id: user_2, beer_id: beer_2, description: review_texts[1], rating: 1})
+checkin_11 = Checkin.create({user_id: user_4, beer_id: beer_3, description: review_texts[6], rating: 2, location: "the Basement"})
+checkin_12 = Checkin.create({user_id: user_2, beer_id: beer_1, description: review_texts[5], rating: 3})
+
+chph_1 = open('https://s3-us-west-1.amazonaws.com/homebrewd-seeds/1.jpg') #ipa
+chph_3 = open('https://s3-us-west-1.amazonaws.com/homebrewd-seeds/10.jpg') #red
+chph_2 = open('https://s3-us-west-1.amazonaws.com/homebrewd-seeds/11.jpg') #orange
+chph_4 = open('https://s3-us-west-1.amazonaws.com/homebrewd-seeds/3.jpg') #brown
+chph_5 = open('https://s3-us-west-1.amazonaws.com/homebrewd-seeds/4.jpg') #brown
+chph_6 = open('https://s3-us-west-1.amazonaws.com/homebrewd-seeds/5.jpg') #ipa
+chph_7 = open('https://s3-us-west-1.amazonaws.com/homebrewd-seeds/7.jpg') #ipa
+chph_8 = open('https://s3-us-west-1.amazonaws.com/homebrewd-seeds/9.jpg') #ipa
+
+checkin_2.photo.attach(chph_1)
+checkin_3.photo.attach(chph_4)
+checkin_6.photo.attach(chph_5)
+checkin_5.photo.attach(chph_3)
+checkin_4.photo.attach(chph_6)
+checkin_9.photo.attach(chph_2)
+checkin_10.photo.attach(chph_7)
+checkin_11.photo.attach(chph_8)
+
+

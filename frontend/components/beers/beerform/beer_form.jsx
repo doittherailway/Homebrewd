@@ -62,7 +62,8 @@ class BeerForm extends React.Component {
         super(props);
         this.state = {
             name: this.props.beer.name,
-            brewery_id: this.props.beer.brewery_id,
+            brewery_id: this.props.beer.breweryId,
+            brewery: this.props.brewery,
             beer_type: this.props.beer.beerType, 
             description: this.props.beer.description,
             abv: this.props.beer.abv,
@@ -85,7 +86,7 @@ class BeerForm extends React.Component {
         if (this.props.formType === 'Edit') {
             const formData = new FormData();
             formData.append('beer[name]', this.state.name);
-            formData.append('beer[brewery_id]', this.state.brewery_id);
+            formData.append('beer[brewery]', this.state.brewery);
             formData.append('beer[beer_type]', this.state.beer_type);
             formData.append('beer[description]', this.state.description);
             formData.append('beer[abv]', this.state.abv);

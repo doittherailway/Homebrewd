@@ -10,8 +10,8 @@ class EditBeerForm extends React.Component {
   }
 
   render () {
-    if (this.props.beer !== undefined){
-      const { beer, formType, beerFormAction, errors} = this.props;
+    if (this.props.beer !== undefined && this.props.brewery !== undefined){
+      const { beer, formType, beerFormAction, errors, brewery} = this.props;
       return (
         <BeerForm
           beer={beer}
@@ -19,7 +19,8 @@ class EditBeerForm extends React.Component {
           beerFormAction={beerFormAction}
           receiveBeerErrors={receiveBeerErrors}
           errors={errors}
-          selectedStyle={beer.beerType} />
+          selectedStyle={beer.beerType}
+          brewery={brewery} />
       );
     } else {
       return (null);
@@ -30,13 +31,18 @@ class EditBeerForm extends React.Component {
 
 
 const mapStateToProps = (state, ownProps) => {
+  
     let beerId = ownProps.match.params.beerId;
     let beer = state.entities.beers[beerId];
+    let brewery
+    if (beer !== undefined)
+    {brewery = state.entities.breweries[beer.breweryId].name}
     return({
         beer: beer,
         beerId: beerId,
         formType: 'Edit',
-        errors: state.errors
+        errors: state.errors,
+        brewery: brewery
     });
 };
 

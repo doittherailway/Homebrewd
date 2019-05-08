@@ -42,6 +42,7 @@ class Api::BeersController < ApplicationController
         @beer.description = beer_params[:description]
         @beer.beer_type = beer_params[:beer_type]
         @beer.abv = beer_params[:abv] 
+        # @beer.brewery_id = beer_params[:brewery_id]
         @beer.brewery_id = Beer.find_brewery_id(beer_params[:brewery])
         if beer_params[:photo] != "null"
             @beer.photo = beer_params[:photo]
