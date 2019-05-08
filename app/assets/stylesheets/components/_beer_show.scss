@@ -45,12 +45,13 @@
     // justify-content: center;
     background-color: white;
     width: 700px;
-    align-self: center
+    align-self: center;
+    justify-content: space-between;
 }
 
 .beer-show-desc {
     display: inline-block;
-    margin-left: 5px;
+    margin-left: 30px;
     margin-top: 10px;
     margin-bottom: 15px;
     margin-right: 25px;
@@ -60,9 +61,9 @@
     font-size: 15px;
 }
 
-.beer-show-desc-left {
-    margin-left: 20px;
-}
+// .beer-show-desc-left {
+//     margin-left: 20px;
+// }
 
 .beer-desc-read {
     color: $beer-orange;

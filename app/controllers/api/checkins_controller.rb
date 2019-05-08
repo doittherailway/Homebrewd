@@ -16,11 +16,19 @@ class Api::CheckinsController < ApplicationController
     end
 
     def create
-        @checkin = Checkin.new(checkin_params)
 
-            if checkin_params[:photo] != "null"
-                @checkin.photo = checkin_params[:photo]
-            end
+        @checkin = Checkin.new({
+            description: checkin_params[:description],
+            rating: checkin_params[:rating],
+            location: checkin_params[:location],
+            user_id: checkin_params[:user_id],
+            beer_id: checkin_params[:beer_id]
+        })
+        
+        if checkin_params[:photo] != "null"
+            @checkin.photo = checkin_params[:photo]
+        end
+
         if @checkin.save
             render "api/checkins/show" #maybe some different render, was /beers/id
         else

@@ -10,7 +10,8 @@ class CheckinModal extends React.Component {
             beer_id: this.props.beerId,
             description: "",
             rating: 0,
-            location: ""
+            location: "",
+            photoFile: null
         };
 
         this.showhideClassname = this.showhideClassname.bind(this);
@@ -44,7 +45,7 @@ class CheckinModal extends React.Component {
         });
     }
 
-    handleSubmit(e){
+    handleSubmit(e) {
         e.preventDefault();
         const formData = new FormData();
         formData.append('checkin[description]', this.state.description);
@@ -57,13 +58,20 @@ class CheckinModal extends React.Component {
         this.props.createCheckin(formData)
             .then((action) => {
                 if (action.type === "RECEIVE_CHECKIN") {
-                    // Show success modal
+                    this.setState({
+                        user_id: this.props.userId,
+                        beer_id: this.props.beerId,
+                        description: "",
+                        rating: 0,
+                        location: "",
+                        photoFile: null
+                    });
+                    this.props.handleClose();
                 }
-            });
-        
+            })
 
         //this.props.handleClose on success
-    }
+    };
 
     renderErrors() {
         if (this.props.errors.checkins.length > 0) {
