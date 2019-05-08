@@ -86,14 +86,14 @@ chph_6 = open('https://s3-us-west-1.amazonaws.com/homebrewd-seeds/5.jpg') #ipa
 chph_7 = open('https://s3-us-west-1.amazonaws.com/homebrewd-seeds/7.jpg') #ipa
 chph_8 = open('https://s3-us-west-1.amazonaws.com/homebrewd-seeds/9.jpg') #ipa
 
-checkin_2.photo.attach(io: chph_1, filename: 'checkin_photo.jpg')
-checkin_3.photo.attach(io: chph_4, filename: 'checkin_photo1.jpg')
-checkin_6.photo.attach(io: chph_5, filename: 'checkin_photo2.jpg')
-checkin_5.photo.attach(io: chph_3, filename: 'checkin_photo3.jpg')
-checkin_4.photo.attach(io: chph_6, filename: 'checkin_photo4.jpg')
-checkin_9.photo.attach(io: chph_2, filename: 'checkin_photo5.jpg')
-checkin_10.photo.attach(io: chph_7, filename: 'checkin_photo6.jpg')
-checkin_11.photo.attach(io: chph_8, filename: 'checkin_photo7.jpg')
-checkin_12.photo.attach(io: chph_5, filename: 'checkin_photo2.jpg')
+checkin_2.photo.attach(io: chph_1, filename: '1.jpg')
+checkin_3.photo.attach(io: chph_4, filename: '3.jpg')
+checkin_6.photo.attach(io: chph_5, filename: '4.jpg')
+checkin_5.photo.attach(io: chph_3, filename: '10.jpg')
+checkin_4.photo.attach(io: chph_6, filename: '5.jpg')
+checkin_9.photo.attach(io: chph_2, filename: '11.jpg')
+checkin_10.photo.attach(io: chph_7, filename: '7.jpg')
+checkin_11.photo.attach(io: chph_8, filename: '9.jpg')
+checkin_12.photo.attach(io: chph_5, filename: '4.jpg')
 
 
