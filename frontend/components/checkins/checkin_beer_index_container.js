@@ -6,7 +6,8 @@ const mapStateToProps = (state) => ({
     checkins: Object.values(state.entities.checkins),
     users: state.entities.users,
     beers: state.entities.beers, 
-    currentUserId: state.session.currentUserId
+    currentUserId: state.session.currentUserId,
+    breweries: state.entities.breweries
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => {

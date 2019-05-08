@@ -14,7 +14,7 @@ const CheckinIndexItem = (props) => {
                     <i className="fas fa-user-circle"></i>
                 </div>
                 <div className="checkin-index-item-inner">
-                    <p className="checkin-item-p"><Link className="checkin-item-link" to="">{props.user.username}</Link> is drinking a <Link className="checkin-item-link" to={`/beers/${props.beer.id}`}>{props.beer.name}</Link> by [brewery]</p>
+                    <p className="checkin-item-p"><Link className="checkin-item-link" to="">{props.user.username}</Link> is drinking a <Link className="checkin-item-link" to={`/beers/${props.beer.id}`} onClick={window.scrollTo(0, 0)}>{props.beer.name}</Link> by {props.brewery.name}</p>
                     <div className="checkin-desc-box">
                         <p>{props.checkin.description}</p>
                         <div className="checkin-beer-rating-box"><CheckinRating rating={props.checkin.rating} /></div>

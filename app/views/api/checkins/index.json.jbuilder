@@ -16,4 +16,10 @@
             json.partial! '/api/users/user', user: checkin.user
         end
     end
+
+    json.breweries do
+        json.set! checkin.brewery.id do
+            json.extract! checkin.brewery, :id, :name
+        end
+    end
 end

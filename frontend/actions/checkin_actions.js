@@ -9,7 +9,8 @@ const receiveCheckins = (payload) => (
         type: RECEIVE_ALL_CHECKINS,
         checkins: payload.checkins,
         beers: payload.beers,
-        users: payload.users
+        users: payload.users,
+        breweries: payload.breweries
     }
 );
 
@@ -18,7 +19,8 @@ const receiveCheckin = (payload) => (
         type: RECEIVE_CHECKIN,
         checkin: payload.checkin,
         user: payload.user,
-        beer: payload.beer
+        beer: payload.beer,
+        brewery: payload.brewery
     }
 );
 

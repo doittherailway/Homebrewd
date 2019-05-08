@@ -7,4 +7,10 @@ class Checkin < ApplicationRecord
     belongs_to :beer
 
     has_one_attached :photo
+
+       # has_many :thing, dependant :destroy
+
+    has_one :brewery,
+        through: :beer  
+
 end

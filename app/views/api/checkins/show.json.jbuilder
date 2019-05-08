@@ -16,4 +16,8 @@ json.beer do
     end
 end
 
+json.brewery do
+    json.extract! @checkin.brewery, :id, :name
+end
+
 #check efficiency of this

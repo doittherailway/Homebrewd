@@ -56,11 +56,12 @@
     display: inline-block;
     box-sizing: border-box;
     width: 50px;
+    height: 50px;
     margin: 5px;
 }
 
 .fa-user-circle {
-    font-size: 40px;
+    font-size: 50px;
     color: $beer-dtl-grey;
 }
 
@@ -69,6 +70,7 @@
     display: inline-block;
     width: 80%;
     margin: 5px;
+    margin-bottom: 40px;
 }
 
 .checkin-beer-icon {
@@ -87,7 +89,7 @@
 }
 
 .checkin-item-p {
-    font-size: 16px;
+    font-size: 18px;
 }
 
 .checkin-item-link {
@@ -125,6 +127,8 @@
 
 .checkin-beer-rating-box {
     color: $beer-dtl-grey;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 .checkin-photo-box {
@@ -154,5 +158,5 @@
 
 .checkin-extra-detail-link {
     display: inline-block;
-    margin-left: 100px;
+    margin-left: 50px;
 }

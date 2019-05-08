@@ -15,12 +15,12 @@ class CheckinIndex extends React.Component {
     }
 
     render(){
-        if (Object.keys(this.props.checkins).length === 0) { //I think there is checkins sitting in the state which is causing a render before a fetch
+
+        if (Object.keys(this.props.checkins).length === 0 ) { //|| this.props.breweries === undefined
             return (null);
         } else {
             let sortedCheckins = sortByLatest(this.props.checkins);
-            //sort checkins here
-
+            
             return(
                 <div className="checkin-index-outer">
                     <div className="checkin-index-container">
@@ -29,7 +29,7 @@ class CheckinIndex extends React.Component {
                         </div>
                         <ul className="checkin-index-ul">
                             {sortedCheckins.map((checkin, i) => {
-                                return (<CheckinIndexItem checkin={checkin} beer={this.props.beers[checkin.beerId]} user={this.props.users[checkin.userId]} currentUserId={this.props.currentUserId} key={i} />)
+                                return (<CheckinIndexItem checkin={checkin} beer={this.props.beers[checkin.beerId]} user={this.props.users[checkin.userId]} currentUserId={this.props.currentUserId} brewery={this.props.breweries[this.props.beers[checkin.beerId].breweryId]} key={i} />)
                             })}
                         </ul>
                     </div>
