@@ -3,15 +3,33 @@ import { Link } from 'react-router-dom';
 import BeerIndexItem from './beer_index_item';
 
 class BeerIndex extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            fetchDone: false
+        }
+    }
 
     componentDidMount(){
-        this.props.fetchBeers();
+        this.props.fetchBeers()
+            .then((action) => {
+                if (action.type === "RECEIVE_ALL_BEERS") {
+                    this.setState({
+                        fetchDone: true
+                    })
+                }
+            });
     }
 
     render() {
-        if (Object.keys(this.props.beers).length === 0) {
+        if (this.state.fetchDone == false) {
             return(
-                null
+                <div className="loading-spinner-box">
+                    <div className="loading-spinner">
+                        <img src={window.images.loading_spinner} />
+                    </div>
+                </div>
             );
         } else {
             return(
@@ -45,3 +63,5 @@ class BeerIndex extends React.Component {
 }
 
 export default BeerIndex;
+
+//Object.keys(this.props.beers).length === 0)

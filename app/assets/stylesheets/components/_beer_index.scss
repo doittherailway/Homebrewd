@@ -208,3 +208,15 @@
     color: $beer-light-orange;
 }
 
+.loading-spinner {
+    max-height: 80px;
+    max-width: 80px;
+}
+
+.loading-spinner-box {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background-color: $bg-grey;
+    margin-top: 60px;
+}
