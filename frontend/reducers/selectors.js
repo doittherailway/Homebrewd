@@ -36,9 +36,21 @@ export const timeDifference = (previous) => {
 export const countCheckins = (userId, checkins) => {
     let counter = 0;
     checkins.map(checkin => {
-        if (checkin.user_id === userId) {
+        if (checkin.userId === userId) {
             counter += 1
         }
     })
     return counter;
+}
+
+export const countUniqueCheckins = (userId, checkins) => {
+    let unique = [];
+
+    checkins.map(checkin => {
+        if (!unique.includes(checkin.beerId) && userId === checkin.userId) {
+            unique.push(checkin.beerId);
+        }
+    })
+
+    return unique.length;
 }

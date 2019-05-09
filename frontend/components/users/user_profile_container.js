@@ -4,10 +4,12 @@ import UserProfile from './user_profile';
 
 const mapStateToProps = (state, ownProps) => {
     let userId = ownProps.match.params.userId;
-    let user = state.entities.users[userId]; 
+    let user = state.entities.users[userId];
+    let checkins = state.entities.checkins; 
     return({
         userId: userId,
-        user: user
+        user: user,
+        checkins: checkins
     })
 };
 

@@ -3,10 +3,11 @@ import * as UserApiUtil from '../util/user_api_util';
 export const RECEIVE_USER = 'RECEIVE_USER';
 
 
-const receiveUser = (user) => (
+const receiveUser = (payload) => (
     {
         type: RECEIVE_USER,
-        user
+        user: payload.user,
+        checkins: payload.checkins
     }
 );
 

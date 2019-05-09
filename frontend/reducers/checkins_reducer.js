@@ -17,10 +17,10 @@ const checkinsReducer = (state = {}, action) => {
         case REMOVE_CHECKIN:
             delete newState[action.checkinId];
             return newState;
-        // case RECEIVE_USER:
-        //     Object.values(action.checkins).map(checkin => {
-        //         newState[checkin.id] = checkin
-        //     });
+        case RECEIVE_USER:
+            Object.values(action.checkins).map(checkin => {
+                newState[checkin.id] = checkin
+            });
         default:
             return state;
     }

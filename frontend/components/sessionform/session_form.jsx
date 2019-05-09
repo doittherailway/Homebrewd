@@ -32,8 +32,14 @@ class SessionForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.processForm(this.state);
-    }
+        this.props.processForm(this.state)
+            // .then((action) => {
+            //     if (action.type === "RECEIVE_CURRENT_USER") {
+            //         return (this.props.history.push(`/`))
+            //     }
+            // })
+    };
+    //this.props.history.push(`/beers`);
 
     demoUserFill(){
         this.setState({

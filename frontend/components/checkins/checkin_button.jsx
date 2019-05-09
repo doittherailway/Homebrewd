@@ -54,3 +54,4 @@ class CheckinButton extends React.Component {
 export default CheckinButton;
 
 ////className="checkin-button-container"
+

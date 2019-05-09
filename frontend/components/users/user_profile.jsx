@@ -1,18 +1,33 @@
 import React from 'react';
 import CheckinUserIndexContainer from '../checkins/checkin_user_index_container';
+import { countCheckins, countUniqueCheckins } from '../../reducers/selectors';
 
 class UserProfile extends React.Component {
     constructor(props) {
         super(props)
+
+        this.state = {
+            count: 0,
+            unique: 0
+        }
     };
 
     componentDidMount(){
-        this.props.fetchUser(this.props.userId);
+        this.props.fetchUser(this.props.userId)
+        .then(payload => {
+            let count = countCheckins(payload.user.id, Object.values(payload.checkins));
+            let uniqCount = countUniqueCheckins(payload.user.id, Object.values(payload.checkins))
+            this.setState({
+                count: count,
+                unique: uniqCount
+            })
+        })
     }
+
+    // countCheckins = (userId, checkins)
 
     render() {
         if (this.props.user !== undefined){
-            
         return(
             <div className="user-profile-top-level-container">
                 <div className="user-profile-outer">
@@ -30,7 +45,7 @@ class UserProfile extends React.Component {
                                 <p>{this.props.user.username}</p>
                             </div>
                             <div className="user-profile-stats">
-                                <p className="user-stats-number">213</p> <p className="user-stats-text">TOTAL</p><p className="user-stats-number">187</p> <p className="user-stats-text">UNIQUE</p>
+                                <p className="user-stats-number">{this.state.count}</p> <p className="user-stats-text">TOTAL</p><p className="user-stats-number">{this.state.unique}</p> <p className="user-stats-text">UNIQUE</p>
                             </div>
                         </div>
                     </div>

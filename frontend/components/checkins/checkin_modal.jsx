@@ -125,7 +125,7 @@ class CheckinModal extends React.Component {
                 <section className="checkin-modal-section">
                 <   div className="checkin-modal-top-bar">
                         <p className="checkin-modal-top-text">Check-In</p>
-                        <button className="checkin-modal-close-btn" onClick={this.props.handleClose}>
+                        <button className="checkin-modal-close-btn" onClick={() => {this.props.handleClose();this.props.receiveErrors([])}}>
                             x
                         </button>
                     </div>
@@ -144,7 +144,7 @@ class CheckinModal extends React.Component {
 
 ///// Container for checkin creation dispatch action
 
-import { createCheckin } from '../../actions/checkin_actions';
+import { createCheckin, receiveCheckinErrors } from '../../actions/checkin_actions';
 
 const mapStateToProps = (state) => ({
     errors: state.errors
@@ -152,6 +152,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     createCheckin: (checkin) => (dispatch(createCheckin(checkin))),
+    receiveErrors: (errors) => (dispatch(receiveCheckinErrors(errors)))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CheckinModal);
