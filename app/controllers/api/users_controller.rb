@@ -10,6 +10,10 @@ class Api::UsersController < ApplicationController
         end
     end
 
+    def show
+        @user = User.includes(:checkins).find(params[:id])
+    end
+
 
     private
     def user_params

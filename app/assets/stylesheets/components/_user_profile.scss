@@ -1,0 +1,96 @@
+ @import "../base/colors.scss";
+ @import "../base/fonts.scss";
+
+// .splash-container {
+//     background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ), image-url("beers_bg_1.jpg");
+//     // background-size:100% 100%;
+//     background-size: cover;
+//     width: 100%;
+//     height: 100%;
+//     z-index: -1;
+//     position: absolute;
+//     display: flex;
+//     align-items: flex-end;
+//     flex-direction: column;
+//     font-family: 'Roboto', sans-serif;
+
+// .beer-index-outer {
+//     display: flex;
+//     justify-content: center;
+//     background-color: white;
+//     width: 700px;
+//     align-self: center
+// }
+// }
+
+.user-profile-top-level-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.user-profile-outer {
+    display: flex;
+    width: 700px;
+    justify-content: center;
+    align-self: center;
+}
+
+.user-topbar-container {
+    background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ), image-url("beers_bg.jpg");
+ 
+    background-size: cover;
+    width: 700px;
+    height: 250px;
+    display: flex;
+    font-family: $main-font;
+    color: white;
+}
+
+.user-profile-top-photo {
+    align-self: flex-end;
+    margin: 20px;
+}
+
+.user-profile-circle {
+    background-color: white;
+    width: 81px;
+    height: 81px;
+    border-radius: 40px;
+}
+
+.usr-circ {
+    font-size: 79px;
+    margin-left: 3px;
+    margin-top: 1px;
+}
+
+.user-profile-details-box {
+    margin-left: 10px;
+    align-self: flex-end;
+}
+
+.user-profile-title-name {
+    align-self: flex-end;
+    font-size: 34px;
+}
+
+.user-profile-stats {
+    display: flex;
+    width: 200px;
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+
+.user-stats-number {
+    font-size: 20px;
+    padding: 2px 2px 0px 2px;
+    display: inline-block;
+    align-self: flex-end;
+}
+
+.user-stats-text {
+    font-size: 14px;
+    display: inline-block;
+    align-self: flex-end;
+    padding: 2px;
+}

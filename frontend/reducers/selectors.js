@@ -32,3 +32,13 @@ export const timeDifference = (previous) => {
 };
 
 // https://stackoverflow.com/a/6109105
+
+export const countCheckins = (userId, checkins) => {
+    let counter = 0;
+    checkins.map(checkin => {
+        if (checkin.user_id === userId) {
+            counter += 1
+        }
+    })
+    return counter;
+}

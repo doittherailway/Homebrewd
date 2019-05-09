@@ -4,7 +4,7 @@ const CheckinLocation = ({ location }) => {
     if (location !== "" && location !== null) {
         return(
             <>
-                at <p className="location-name-checkin">{location}</p>
+                at {location}
             </>
         )
     } else {
@@ -13,3 +13,5 @@ const CheckinLocation = ({ location }) => {
 };
 
 export default CheckinLocation;
+
+//at <p className="location-name-checkin">{location}</p>
