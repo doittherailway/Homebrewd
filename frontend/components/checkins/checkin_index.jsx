@@ -15,7 +15,6 @@ class CheckinIndex extends React.Component {
     }
 
     render(){
-
         if (Object.keys(this.props.checkins).length === 0 ) { //|| this.props.breweries === undefined
             return (null);
         } else {
