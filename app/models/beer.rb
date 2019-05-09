@@ -71,5 +71,9 @@ class Beer < ApplicationRecord
         end
     end
 
+    def self.find_search_results(string)
+        Beer.where("LOWER(beers.name) LIKE LOWER('#{string}%')")
+    end
+
     
 end

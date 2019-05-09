@@ -55,6 +55,11 @@ class Api::BeersController < ApplicationController
         end
     end
 
+    def search
+        @beers = Beer.find_search_results(params[:query]).includes(:brewery, :checkins)
+        render "api/beers/index"
+    end
+
     # def destroy
     #     @beer = Beer.find(params[:id])
     #     @beer.destroy
@@ -71,7 +76,8 @@ class Api::BeersController < ApplicationController
             :beer_type,
             :abv,
             :id, 
-            :photo
+            :photo,
+            :search_string
         )
     end
 end

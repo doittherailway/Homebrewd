@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'; //Link welcome message to user profile later
+import SearchbarContainer from './searchbar_container';
 
 class Navbar extends React.Component {
     constructor(props) {
@@ -17,14 +18,17 @@ class Navbar extends React.Component {
                     <Link to="/" className="nav-pub">The Pub</Link>
                     <Link to="/beers" className="nav-beers">Beers</Link>
                     <h4>Welcome, </h4>
-                        <div className="dropdown">
-                        <button className="dropbtn"><Link to={`/users/${this.props.currentUser.id}`} >{this.props.currentUser.username}!</Link>
-                            </button>
-                            <div className="dropdown-content">
-                            <Link className="dropdown-link" to={`/users/${this.props.currentUser.id}`}>Profile</Link>
-                                <a className="dropdown-link" onClick={this.props.logout}>Logout</a>
-                            </div>
+                    <div className="dropdown">
+                    <button className="dropbtn"><Link to={`/users/${this.props.currentUser.id}`} >{this.props.currentUser.username}!</Link>
+                        </button>
+                        <div className="dropdown-content">
+                        <Link className="dropdown-link" to={`/users/${this.props.currentUser.id}`}>Profile</Link>
+                            <a className="dropdown-link" onClick={this.props.logout}>Logout</a>
                         </div>
+                    </div>
+                    <div>
+                        <SearchbarContainer />
+                    </div>
                 </div>
 
             )

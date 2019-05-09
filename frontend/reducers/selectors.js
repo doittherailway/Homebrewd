@@ -50,7 +50,42 @@ export const countUniqueCheckins = (userId, checkins) => {
         if (!unique.includes(checkin.beerId) && userId === checkin.userId) {
             unique.push(checkin.beerId);
         }
-    })
+    });
 
     return unique.length;
-}
+};
+
+// export const debounce = (func, wait) => {
+//     let timeout;
+
+//     return function() {
+//         let context = this, args = arguments;
+//         let later = function() {
+//             timeout = null;
+//             func.apply(context, args);
+//         };
+
+//         let callNow = !timeout;
+//         clearTimeout(timeout);
+//         timeout = setTimeout(later, wait);
+//         if (callNow) func.apply(context, args);
+//     };
+// };
+
+// https://davidwalsh.name/javascript-debounce-function
+
+export const searchDebounce = (func, interval) => {
+    let timeout;
+
+    return(...args) => {
+
+        const fnCall = () => {
+            timeout = null;
+            func(...args);
+        };
+
+        clearTimeout(timeout);
+        timeout = setTimeout(fnCall, interval);
+    };
+};
+
