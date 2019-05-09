@@ -91,6 +91,7 @@
 .checkin-item-p {
     font-size: 18px;
     margin-bottom: 15px;
+    overflow-wrap: break-word;
 }
 
 .checkin-item-link {
@@ -115,6 +116,7 @@
     font-size: 19px;
     position: relative;
     z-index: 1;
+    overflow-wrap: break-word;
 }
 
 .checkin-desc-box::before {

@@ -47,6 +47,14 @@
     font-weight: 300;
 }
 
+// .nav-pub:hover {
+//   color: $border-light-grey;
+// }
+
+// .nav-beers:hover {
+//   color: $border-light-grey;
+// }
+
 .nav-beers {
     color: white;
     font-family: $main-font;
@@ -95,6 +103,10 @@
   text-align: left;
   cursor: pointer;
     border-bottom: 1px solid $beer-dtl-grey;
+}
+
+.dropdown-link:hover {
+  text-shadow: 2px 2px 6px $beer-dtl-grey;
 }
 
 .dropdown-content .dropdown-link:hover {
