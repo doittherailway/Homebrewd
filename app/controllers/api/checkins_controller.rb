@@ -11,7 +11,7 @@ class Api::CheckinsController < ApplicationController
         else 
             @checkins = Checkin.all.includes(:beer, :user)
         end
-        
+        # debugger
         render "api/checkins/index"
     end
 

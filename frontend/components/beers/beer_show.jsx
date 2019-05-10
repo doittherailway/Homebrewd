@@ -19,6 +19,12 @@ class BeerShow extends React.Component {
         this.props.fetchBeer(this.props.beerId);
     }
 
+    componentDidUpdate(oldProps) {
+        if (this.props.beerId !== oldProps.match.params.beerId) {
+            this.props.fetchBeer(this.props.beerId);
+        }
+    }
+
     handleDelete(){
         let result = confirm("Are you sure you wish to delete this beer?");
         if (result){
@@ -29,7 +35,9 @@ class BeerShow extends React.Component {
  
 
     render() {
+        
         if (this.props.beer !== undefined && this.props.beer.name !== undefined && this.props.brewery !== undefined) {
+            // if (this.props.beer.id !== parseInt(this.props.match.params.beerId)) return null;
             return(
                 <div className="beer-bg">
                     <div className="beer-show-outer">

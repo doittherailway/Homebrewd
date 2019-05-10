@@ -3,7 +3,6 @@ import * as SearchApiUtil from '../util/search_api_util';
 export const RECEIVE_BEER_SEARCH = 'RECEIVE_BEER_SEARCH';
 
 const receiveBeerSearch = (payload) => {
-    debugger;
     return({
         type: RECEIVE_BEER_SEARCH,
         beers: payload.beers

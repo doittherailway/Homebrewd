@@ -14,7 +14,11 @@ const beersReducer = (state = {}, action) => {
             delete newState[action.beerId];
             return newState;
         case RECEIVE_ALL_CHECKINS:
+            if (action.beers !== undefined) {
             return action.beers;
+            } else {
+                return newState;
+            }
         case RECEIVE_CHECKIN:
             newState[action.beer.id] = action.beer;
             return newState;

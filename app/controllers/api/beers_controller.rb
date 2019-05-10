@@ -56,7 +56,11 @@ class Api::BeersController < ApplicationController
     end
 
     def search
-        @beers = Beer.find_search_results(params[:query]).includes(:brewery, :checkins)
+        if params[:query] == ""
+            @beers = []
+        else 
+            @beers = Beer.find_search_results(params[:query]).includes(:brewery, :checkins)
+        end
         render "api/beers/index"
     end
 

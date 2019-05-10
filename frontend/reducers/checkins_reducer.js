@@ -7,7 +7,11 @@ const checkinsReducer = (state = {}, action) => {
     let newState = Object.assign({}, state);
     switch (action.type) {
         case RECEIVE_ALL_CHECKINS:
-            return action.checkins;
+            if (action.checkins !== undefined) {
+                return action.checkins;
+            } else {
+                return {}
+            }
         case RECEIVE_CHECKIN:
             newState[action.checkin.id] = action.checkin;
             return newState;
@@ -21,6 +25,7 @@ const checkinsReducer = (state = {}, action) => {
             Object.values(action.checkins).map(checkin => {
                 newState[checkin.id] = checkin
             });
+            return newState;
         default:
             return state;
     }

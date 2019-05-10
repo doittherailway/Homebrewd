@@ -24,6 +24,12 @@ class UserProfile extends React.Component {
         })
     }
 
+    componentDidUpdate(oldProps) {
+        if (this.props.userId !== oldProps.match.params.userId) {
+            this.props.fetchUser(this.props.userId);
+        }
+    }
+
     // countCheckins = (userId, checkins)
 
     render() {

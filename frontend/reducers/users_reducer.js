@@ -10,9 +10,10 @@ const usersReducer = (state = {}, action) => {
             newState[action.currentUser.id] = action.currentUser;
             return newState;
         case RECEIVE_ALL_CHECKINS:
+            if (action.users !== undefined) {
             Object.values(action.users).map(user => {
                 newState[user.id] = user
-            });
+            });}
             return newState;
         case RECEIVE_CHECKIN:
             newState[action.user.id] = action.user;

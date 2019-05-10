@@ -2,7 +2,7 @@ import React from 'react';
 import CheckinIndexItem from './checkin_index_item';
 import { sortByLatest } from '../../reducers/selectors';
 
-class CheckinIndex extends React.Component {
+class CheckinBeerIndex extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -22,29 +22,15 @@ class CheckinIndex extends React.Component {
         
     }
 
-    // componentDidUpdate(oldProps) {
-    //     if (this.props.indexType === "Beer") {
-    //         if (this.props.beerId !== oldProps.beerId) {
-    //             this.props.fetchRelevantCheckins();
-    //         }} else if (this.props.indexType === "User") {
-    //             if (this.props.userId !== oldProps.userId) {
-    //                 this.props.fetchRelevantCheckins();
-    //     }}
-    // }
+    componentDidUpdate(oldProps) {
+        if (this.props.beerId !== oldProps.beerId) {
+            this.props.fetchRelevantCheckins();
+        }
+    }
 
     render(){
-        // if (Object.keys(this.props.checkins).length === 0 || Object.keys(this.props.breweries).length === 0) { //|| this.props.breweries === undefined
-        //     return (null);
-        // else if (this.props.userId !== undefined && this.props.checkins[0].userId === this.props.userId) {
-        //     return(null)
-        // }
         if (Object.keys(this.props.breweries).length === 0 || Object.keys(this.props.checkins).length === 0) {
             return(null)
-        // } else if (this.props.indexType === "User" && this.props.checkins[0].userId !== this.props.userId || this.props.breweries === undefined) {
-        //     return(null)
-        // } else if (this.props.indexType === "Beer" && this.props.beers === undefined || this.props.breweries === undefined) {
-        //     return(null)
-        // }
         }
         else {
             let sortedCheckins = sortByLatest(this.props.checkins);
@@ -85,4 +71,4 @@ class CheckinIndex extends React.Component {
 
 }
 
-export default CheckinIndex;
+export default CheckinBeerIndex;

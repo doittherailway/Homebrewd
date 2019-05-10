@@ -74,18 +74,3 @@ export const countUniqueCheckins = (userId, checkins) => {
 
 // https://davidwalsh.name/javascript-debounce-function
 
-export const searchDebounce = (func, interval) => {
-    let timeout;
-
-    return(...args) => {
-
-        const fnCall = () => {
-            timeout = null;
-            func(...args);
-        };
-
-        clearTimeout(timeout);
-        timeout = setTimeout(fnCall, interval);
-    };
-};
-

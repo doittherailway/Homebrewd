@@ -1,6 +1,19 @@
 import React from 'react';
 import { searchDebounce } from '../../reducers/selectors';
+import SearchBarItem from './searchbar_item';
 
+Function.prototype.myDebounce = function (interval) {
+    let timeout;
+    return (...args) => {
+        const fnCall = () => {
+            timeout = null;
+            this(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(fnCall, interval);
+    };
+};
+// https://github.com/appacademy/curriculum/blob/master/javascript/projects/functions_exercises/solution/throttleAndDebounce.js
 
 class SearchBar extends React.Component {
     constructor(props) {
@@ -9,42 +22,55 @@ class SearchBar extends React.Component {
             query: ""
         };
 
+        this.handleSubmit = this.handleSubmit.bind(this).myDebounce(500);
         this.handleChange = this.handleChange.bind(this);
-       
-        
+        this.beerOptions = this.beerOptions.bind(this);
+        this.resetSearch = this.resetSearch.bind(this);
     }
 
-    // debounceHandleChange() {
-    //     debounce(this.handleChange, 500);
-    // }
+    beerOptions() {
+        let dataList = document.getElementById('beer-list-res');
+        let input = document.getElementById('search-input');
 
-    componentDidMount(){
-        
+        this.props.results.forEach((beer, index) => {
+            var option = document.createElement('option');
+            option.value = beer;
+            dataList.appendChild(option);
+        });
+        input.placeholder = "Find a beer...";
     }
 
     handleChange(e) {
         let val = e.currentTarget.value;
         this.setState({
             query: val
-        });
-        //debouncer
-        this.fetchSearchResults(this.state.query);
+        }, this.handleSubmit);
+    }
+
+    handleSubmit() {
+        this.props.fetchResults(this.state.query)
+    }
+
+    resetSearch() {
+        this.props.fetchResults("")
     }
 
     render() {
         return(
             <div>
                 <div className="searchbar-input-container">
-                    <input className="searchbar-input" onChange={this.handleChange} placeholder="Find a beer..."></input><p className="search-magnify"></p>
+                    <input className="searchbar-input" onChange={this.handleChange} placeholder="Find a beer..."></input><p className="search-magnify"><i className="fas fa-search"></i></p>
+                    <div className="searchbar-dropdown">
+                        <ul className="searchbar-ul" onClick={this.resetSearch}>
+                            {this.props.results.map((result, i) => {
+                                return (
+                                    <SearchBarItem result={result} key={i} />
+                                )
+                            })}
+                        </ul>
+                    </div>
                 </div>
-                Results: 
-                <ul>
-                {this.props.results.map((result, i) => {
-                    return(
-                        <li key={i}>{result.name}</li>
-                    )
-                })}
-                </ul>
+
             </div>
         )} 
 }
@@ -54,3 +80,20 @@ export default SearchBar;
 //   {sortedCheckins.map((checkin, i) => {
 // return (<CheckinIndexItem checkin={checkin} beer={this.props.beers[checkin.beerId]} user={this.props.users[checkin.userId]} currentUserId={this.props.currentUserId} brewery={this.props.breweries[this.props.beers[checkin.beerId].breweryId]} key={i} />)
 //                             })}
+
+// return (
+//     <div>
+//         <div className="searchbar-input-container">
+//             <input className="searchbar-input" onChange={this.handleChange} placeholder="Find a beer..."></input><p className="search-magnify"><i className="fas fa-search"></i></p>
+//         </div>
+//         <div className="searchbar-dropdown">
+//             <ul className="searchbar-ul">
+//                 {this.props.results.map((result, i) => {
+//                     return (
+//                         <SearchBarItem result={result} key={i} />
+//                     )
+//                 })}
+//             </ul>
+//         </div>
+//     </div>
+// )} 

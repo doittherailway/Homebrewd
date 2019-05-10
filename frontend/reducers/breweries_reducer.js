@@ -1,5 +1,6 @@
 import { RECEIVE_BEER, RECEIVE_ALL_BEERS } from '../actions/beer_actions';
 import { RECEIVE_ALL_CHECKINS } from '../actions/checkin_actions';
+import { RECEIVE_USER } from '../actions/user_actions';
 
 const breweriesReducer = (state = {}, action) => {
     Object.freeze(state);
@@ -11,7 +12,13 @@ const breweriesReducer = (state = {}, action) => {
         case RECEIVE_ALL_BEERS:
             return action.breweries; //is this how it's coming in?
         case RECEIVE_ALL_CHECKINS:
-            return action.breweries;
+            if (action.breweries !== undefined) {
+                return action.breweries;
+            } else {
+                return newState;
+            }
+        case RECEIVE_USER:
+            return {}
         default:
             return state;
     }

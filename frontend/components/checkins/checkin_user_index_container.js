@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import CheckinIndex from './checkin_index';
+import CheckinUserIndex from './checkin_user_index';
 import { fetchResourceCheckins } from '../../actions/checkin_actions';
 
 const mapStateToProps = (state) => ({
@@ -7,7 +7,8 @@ const mapStateToProps = (state) => ({
     users: state.entities.users,
     beers: state.entities.beers,
     currentUserId: state.session.currentUserId,
-    breweries: state.entities.breweries
+    breweries: state.entities.breweries,
+    indexType: "User"
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => {
@@ -17,4 +18,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     });
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CheckinIndex);
+export default connect(mapStateToProps, mapDispatchToProps)(CheckinUserIndex);
