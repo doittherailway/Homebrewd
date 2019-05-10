@@ -30,7 +30,7 @@ class Api::CheckinsController < ApplicationController
         end
 
         if @checkin.save
-            render "api/checkins/show" #maybe some different render, was /beers/id
+            render "api/checkins/show" 
         else
             render json: @checkin.errors.full_messages, status: 422
         end
@@ -43,9 +43,8 @@ class Api::CheckinsController < ApplicationController
 
     def destroy
         @checkin = Checkin.find(params[:id])
-        if @checkin.user_id = current_user.id
+        if @checkin.user_id == current_user.id
             @checkin.destroy
-            #render what here?
             render "api/checkins/show"
         else
             # render errors
