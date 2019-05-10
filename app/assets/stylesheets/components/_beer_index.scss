@@ -8,6 +8,7 @@
 //     position: absolute;
 // }
 
+
 .beer-content {
     display: flex;
     justify-content: center;
@@ -19,7 +20,9 @@
     justify-content: center;
     background-color: white;
     width: 700px;
-    align-self: center
+    align-self: center;
+    // border-right: 1px solid $border-light-grey;
+    // border-left: 1px solid $border-light-grey;
 }
 
 .beer-index-title {
@@ -35,7 +38,9 @@
     height: 60px;
     background-color: $bg-title-grey;
     padding: 15px 15px 10px 40px;
-    border-bottom: 1px solid $border-light-grey;
+    // border-bottom: 1px solid $border-light-grey;
+    // border-right: 1px solid $border-light-grey;
+    // border-left: 1px solid $border-light-grey;
 }
 
 .beer-index-title-add {
@@ -181,6 +186,8 @@
     width: 700px;
     height: 40px;
     align-self: center;
+    // border-right: 1px solid $border-light-grey;
+    // border-left: 1px solid $border-light-grey;
 }
 
 .beer-index-add-container {
@@ -192,6 +199,9 @@
     margin-top: -10px;
     height: 100px;
     margin-bottom: 30px;
+    // border-right: 1px solid $border-light-grey;
+    // border-left: 1px solid $border-light-grey;
+    // border-bottom: 1px solid $border-light-grey;
 }
 
 .beer-index-add {

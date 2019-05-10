@@ -16,7 +16,7 @@ const BeerIndexItem = (props) => {
                 
                     <p className="beer-brewery">{props.brewery.name}</p>
                     <p className="beer-type">{props.beer.beerType}</p>
-                    <BeerDesc fullDesc={props.beer.description} charCount={150} />
+                    <BeerDesc fullDesc={props.beer.description} charCount={150} classDesc="beer-show-desc-index"/>
                 </div>
                 <BeerExtraDetail beer={props.beer} />
             </li>

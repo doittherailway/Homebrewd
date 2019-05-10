@@ -44,14 +44,15 @@
     display: flex;
     // justify-content: center;
     background-color: white;
-    width: 700px;
+    width: 680px;
+    padding-left: 20px;
     align-self: center;
     justify-content: space-between;
 }
 
 .beer-show-desc {
     display: inline-block;
-    margin-left: 30px;
+    margin-left: 5px;
     margin-top: 10px;
     margin-bottom: 15px;
     margin-right: 25px;
@@ -61,6 +62,17 @@
     font-size: 15px;
 }
 
+.beer-show-desc-index {
+    display: inline-block;
+    margin-left: 5px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    margin-right: 5px;
+    padding: 2px;
+    font-family: $main-font;
+    color: $beer-dtl-grey;
+    font-size: 15px;
+}
 // .beer-show-desc-left {
 //     margin-left: 20px;
 // }

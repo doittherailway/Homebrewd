@@ -54,7 +54,7 @@ class BeerShow extends React.Component {
                                 </div>   
                             </div>
                             <div className="beer-show-desc-box"> 
-                                <BeerDesc fullDesc={this.props.beer.description} charCount={84} />
+                                <BeerDesc fullDesc={this.props.beer.description} charCount={84} classDesc="beer-show-desc"/>
                                 <CheckinButton userId={this.props.userId} beerId={this.props.beerId} />
                             </div>
                             <div className="beer-show-line-outer">
