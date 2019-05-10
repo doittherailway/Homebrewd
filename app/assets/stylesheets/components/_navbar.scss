@@ -66,16 +66,24 @@
 
 .top-user-circle {
   height: 38px;
-  width: 38px;
+  min-width: 38px;
   font-size: 38px;
   background-color: white;
   border-radius: 18px;
+
+}
+
+.dropdown-outer {
+  // float: right;
+  flex-grow: 2;
 }
 
 .dropdown {
   float: right;
-  overflow: hidden;
-  flex-grow: 2;
+  // overflow: hidden;
+  // flex-grow: 2;
+  width: 30px;
+  // margin: 20px;
 }
 
 .dropdown .dropbtn {
@@ -89,7 +97,7 @@
   margin-right: 8px;
   border-radius: 16px;
   float: right;
-  
+  min-width: 38px;
 }
 
 
