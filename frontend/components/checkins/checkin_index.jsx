@@ -39,7 +39,12 @@ class CheckinIndex extends React.Component {
         //     return(null)
         // }
         if (Object.keys(this.props.breweries).length === 0 || Object.keys(this.props.checkins).length === 0) {
-            return(null)
+                return(
+                <div className="loading-spinner-box">
+                    <div className="loading-spinner">
+                        <img src={window.images.loading_spinner} />
+                    </div>
+                </div>)
         // } else if (this.props.indexType === "User" && this.props.checkins[0].userId !== this.props.userId || this.props.breweries === undefined) {
         //     return(null)
         // } else if (this.props.indexType === "Beer" && this.props.beers === undefined || this.props.breweries === undefined) {

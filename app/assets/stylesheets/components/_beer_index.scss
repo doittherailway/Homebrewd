@@ -24,7 +24,8 @@
 
 .beer-index-title {
     box-sizing: border-box;
-    display: block;
+    display: flex;
+    justify-content: space-between;
     font-family: $main-font;
     color: black;
     font-size: 22px;
@@ -36,6 +37,18 @@
     padding: 15px 15px 10px 40px;
     border-bottom: 1px solid $border-light-grey;
 }
+
+.beer-index-title-add {
+    font-size: 16px;
+    color: $beer-orange;
+    margin-top: 7px;
+}
+
+.beer-index-title-add:hover {
+    color: $beer-light-orange;
+    cursor: pointer;
+}
+
 
 .beer-index-item {
     // display: flex;

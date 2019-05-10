@@ -22,6 +22,10 @@ class BeerIndex extends React.Component {
             });
     }
 
+    scrollDown() {
+        window.scrollTo(0, document.body.scrollHeight || document.documentElement.scrollHeight);
+    }
+
     render() {
         if (this.state.fetchDone == false) {
             return(
@@ -36,7 +40,7 @@ class BeerIndex extends React.Component {
                 <div className="beer-bg">
                     <div className="beer-content">
                         <div className="beer-index-title">
-                            All Beers
+                            <p>All Beers</p><p onClick={this.scrollDown} className="beer-index-title-add">+</p>
                         </div>
                         <div className="beer-index-outer"> 
                             <div>
