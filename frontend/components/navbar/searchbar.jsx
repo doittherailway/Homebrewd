@@ -19,7 +19,8 @@ class SearchBar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            query: ""
+            query: "",
+            value: ""
         };
 
         this.handleSubmit = this.handleSubmit.bind(this).myDebounce(500);
@@ -43,23 +44,30 @@ class SearchBar extends React.Component {
     handleChange(e) {
         let val = e.currentTarget.value;
         this.setState({
+            value: val,
             query: val
         }, this.handleSubmit);
     }
 
     handleSubmit() {
-        this.props.fetchResults(this.state.query)
+        this.props.fetchResults(this.state.query);
+        this.setState({
+            val: ""
+        });
     }
 
     resetSearch() {
-        this.props.fetchResults("")
+        this.props.fetchResults("");
+        this.setState({
+            val: ""
+        });
     }
 
     render() {
         return(
             <div>
                 <div className="searchbar-input-container">
-                    <input className="searchbar-input" onChange={this.handleChange} placeholder="Find a beer..."></input><p className="search-magnify"><i className="fas fa-search"></i></p>
+                    <input className="searchbar-input" onChange={this.handleChange} value={this.state.value} placeholder="Find a beer..."></input><p className="search-magnify"><i className="fas fa-search"></i></p>
                     <div className="searchbar-dropdown">
                         <ul className="searchbar-ul" onClick={this.resetSearch}>
                             {this.props.results.map((result, i) => {
