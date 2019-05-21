@@ -40,7 +40,7 @@
     border-radius: 4px;
     z-index: 1;
     position: relative;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease-in-out;
 }
 
 .splash-link:hover {
