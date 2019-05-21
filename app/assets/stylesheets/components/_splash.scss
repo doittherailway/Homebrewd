@@ -40,6 +40,12 @@
     border-radius: 4px;
     z-index: 1;
     position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.splash-link:hover {
+    color: black;
+    background-color: white;
 }
 
 .splash-logo {
