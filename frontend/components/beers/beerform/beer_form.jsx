@@ -215,7 +215,7 @@ class BeerForm extends React.Component {
                     <label className="beer-form-label"> Beer Label </label>
                     <div className="beer-form-photo-div">
                     <label className="beer-photo-label">
-                        <input className="beer-form-photo-input" type="file" onChange={this.handleFile}/>
+                        <input className="beer-form-photo-input" type="file" accept=".png, .jpg, .jpeg" onChange={this.handleFile}/>
                         <div className="beer-photo-add-btn">+</div>
                         <div className="beer-photo-add-text">Choose a file to add (JPEG & PNG files only).</div>
                     </label>

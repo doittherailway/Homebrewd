@@ -97,7 +97,7 @@ class CheckinModal extends React.Component {
                         <textarea className="checkin-textarea" value={this.state.description} onChange={(e) => (this.handleChange("description", e))} placeholder="What did you think?"></textarea>
                         <div className="checkin-photo-upload-container">
                             <label className="checkin-photo-label">
-                                <input className="checkin-form-photo-input" type="file" onChange={this.handleFile} />
+                                <input className="checkin-form-photo-input" type="file" accept=".png, .jpg, .jpeg" onChange={this.handleFile} />
                                 <div className="checkin-photo-add-btn"> 
                                     <i className="fas fa-camera"></i>
                                 </div> 
