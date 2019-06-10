@@ -59,7 +59,7 @@ class SearchBar extends React.Component {
     resetSearch() {
         this.props.fetchResults("");
         this.setState({
-            val: ""
+            value: ""
         });
     }
 
